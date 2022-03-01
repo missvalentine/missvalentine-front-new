@@ -1,6 +1,5 @@
 import Image from 'next/image'
 import React from 'react'
-import productImg from "../../public/images/product-3.jpg";
 
 export default function TrendingSection() {
   return (
@@ -18,7 +17,7 @@ export default function TrendingSection() {
     				<div className="product-slider owl-carousel ftco-animated fadeInUp">
     					<div className="item">
 		    				<div className="product">
-		    					<a href="#" className="img-prod"><Image width="600px" height="700px" className="img-fluid" src={productImg} alt="Colorlib Template" />
+		    					<a href="#" className="img-prod"><Image width="600px" height="700px" className="img-fluid" src={"/images/product-3.jpg"} alt="Colorlib Template" />
 		    						<span className="status">30%</span>
 		    					</a>
 		    					<div className="text pt-3 px-3">
@@ -42,7 +41,7 @@ export default function TrendingSection() {
 	    				</div>
 	    				<div className="item">
 		    				<div className="product">
-		    					<a href="#" className="img-prod"><Image width="600px" height="700px" className="img-fluid"  src={productImg} alt="Colorlib Template" /></a>
+		    					<a href="#" className="img-prod"><Image width="600px" height="700px" className="img-fluid"  src={"/images/product-3.jpg"} alt="Colorlib Template" /></a>
 		    					<div className="text pt-3 px-3">
 		    						<h3><a href="#">Young Woman Wearing Dress</a></h3>
 		    						<div className="d-flex">
@@ -64,7 +63,7 @@ export default function TrendingSection() {
 	    				</div>
 	    				<div className="item">
 		    				<div className="product">
-		    					<a href="#" className="img-prod"><Image width="600px" height="700px" className="img-fluid" src={productImg} alt="Colorlib Template" /></a>
+		    					<a href="#" className="img-prod"><Image width="600px" height="700px" className="img-fluid" src={"/images/product-3.jpg"} alt="Colorlib Template" /></a>
 		    					<div className="text pt-3 px-3">
 		    						<h3><a href="#">Young Woman Wearing Dress</a></h3>
 		    						<div className="d-flex">
@@ -86,7 +85,7 @@ export default function TrendingSection() {
 	    				</div>
 	    				<div className="item">
 		    				<div className="product">
-		    					<a href="#" className="img-prod"><Image width="600px" height="700px" className="img-fluid" src={productImg} alt="Colorlib Template" /></a>
+		    					<a href="#" className="img-prod"><Image width="600px" height="700px" className="img-fluid" src={"/images/product-3.jpg"} alt="Colorlib Template" /></a>
 		    					<div className="text pt-3 px-3">
 		    						<h3><a href="#">Young Woman Wearing Dress</a></h3>
 		    						<div className="d-flex">
@@ -108,7 +107,7 @@ export default function TrendingSection() {
 	    				</div>
 	    				<div className="item">
 		    				<div className="product">
-		    					<a href="#" className="img-prod"><Image width="600px" height="700px" src={productImg} alt="Colorlib Template"/>
+		    					<a href="#" className="img-prod"><Image width="600px" height="700px" src={"/images/product-3.jpg"} alt="Colorlib Template"/>
 			    					<span className="status">30%</span>
 			    				</a>
 		    					<div className="text pt-3 px-3">
@@ -132,7 +131,7 @@ export default function TrendingSection() {
 	    				</div>
 	    				<div className="item">
 		    				<div className="product">
-		    					<a href="#" className="img-prod"><Image width="600px" height="700px"  src={productImg} alt="Colorlib Template" /></a>
+		    					<a href="#" className="img-prod"><Image width="600px" height="700px"  src={"/images/product-3.jpg"} alt="Colorlib Template" /></a>
 		    					<div className="text pt-3 px-3">
 		    						<h3><a href="#">Young Woman Wearing Dress</a></h3>
 		    						<div className="d-flex">

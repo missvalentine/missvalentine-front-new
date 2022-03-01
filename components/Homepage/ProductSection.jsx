@@ -1,7 +1,6 @@
 import React from 'react'
 import Image from 'next/image';
 
-import productImg1 from "../../public/images/product-1.jpg";
 import ProductCard from '../ProductCard';
 
 export default function ProductSection() {

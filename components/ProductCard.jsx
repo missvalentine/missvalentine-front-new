@@ -1,11 +1,10 @@
 import React from 'react'
 import Image from 'next/image';
-import productImg from "../public/images/product-3.jpg";
 
 export default function ProductCard(){
     return (
         <div className="product">
-            <a href="#" className="img-prod"><Image height="700px" width="600px" className="img-fluid" src={productImg} alt="Colorlib Template" />
+            <a href="#" className="img-prod"><Image height="700px" width="600px" className="img-fluid" src={"/images/product-3.jpg"} alt="Colorlib Template" />
                 <span className="status">30%</span>
             </a>
             <div className="text py-3 px-3">

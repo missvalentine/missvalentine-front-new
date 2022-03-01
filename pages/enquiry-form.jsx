@@ -3,13 +3,13 @@ import SendMessage from '../components/ConactUs/SendMessage';
 import TopBanner from '../components/CustomComponents/TopBanner';
 import withBaseLayout from '../components/Layout/BaseLayout';
 
-const contact=()=> {
+const EnquiryForm=()=> {
   return (
     <div> 
-      <TopBanner title="Contact Us" subtitle="Conact"/>
-      <SendMessage />
+      <TopBanner title="ENQUIRY FORM" subtitle="ENQUIRY FORM"/>
+    <SendMessage />
     </div>
   )
 }
 
-export default withBaseLayout(contact); 
+export default withBaseLayout(EnquiryForm); 

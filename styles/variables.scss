@@ -1,0 +1,106 @@
+$container-width: 1200px;
+
+//sizes
+$nav-size: 14px;
+$base-font-size: 17px;
+$font-size-xxl: 20px;
+$header-height: 124px;
+
+// breakpoint for height
+$g-bp-h-1: (max-height 630px);
+$g-bp-h-2: (max-height 530px);
+
+$list-item-padding: 10px;
+
+// fonts
+@font-face {
+  font-family: 'futuraBT-medium';
+  src: url('/fonts/futura-md-bt-medium.ttf') format('truetype');
+  font-display: swap;
+}
+@font-face {
+  font-family: 'futuraBT-book';
+  src: url('/fonts/futura-book-bt-22240.ttf') format('truetype');
+  font-display: swap;
+}
+@font-face {
+  font-family: futuraBT-heavy;
+  src: url('/fonts/futura-hv-bt-heavy.ttf') format('truetype');
+  font-display: swap;
+}
+@font-face {
+  font-family: futuraBT-light;
+  src: url('/fonts/futura-light-bt.ttf') format('truetype');
+  font-display: swap;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+
+//@import url("../../assets/fonts/futura-book-bt-22240.ttf");
+// $main-font: "Montserrat", sans-serif;
+$main-font: futuraBT-light;
+$sub-font: futuraBT-medium;
+$book: futuraBT-book;
+$heavy: futuraBT-heavy;
+
+//colors
+$base-color: #fff;
+$high-light: #f1f1f1;
+$light-color: #ffffff;
+$light-color-2: #f9faf7;
+$light-color-4: #f9f9f9;
+$brand-color-1: #aaaaaa;
+$dark-color-1: #f5f5f5;
+$dark-color-2: #000000;
+$error-color: red;
+$error-color-2: #c40000;
+$border-color: #d0c9c9;
+$black: #000;
+$light-brown: #fcf6ee;
+$dark-brown: #b89171;
+// extra colors
+$light-color-3: #fdfdfd;
+$cart-bg-color: #e4e4e4;
+
+//  new design colors
+$drawer-background: #fcf6ee;
+//---blog------------------
+$color-primary: #b7c7c9;
+$color-secondary: #f7f1e9;
+$color-secondary2: #e8972c;
+$color-font-muted: rgba(0, 0, 0, 0.44);
+$color-font-black: rgba(0, 0, 0, 0.88);
+$color-primary2: rgb(238, 226, 215);
+
+$font-large: 20px;
+$font-small: 12px;
+
+//Font weight
+$wg-normal: 400;
+$wg-bolder: 700;
+$wg-bold: 600;
+
+//admin
+
+$theme-font-family: 'Open Sans', sans-serif;
+$theme-font-size: 14px;
+$theme-background: #f4f7fa;
+$theme-font-color: #888;
+$theme-heading-color: #111;
+
+$theme-color: linear-gradient(-135deg, #1de9b6 0%, #1dc4e9 100%);
+$theme-color2: linear-gradient(-135deg, #899fd4 0%, #a389d4 100%);
+$primary-color: #04a9f5;
+$warning-color: #f4c22b;
+$danger-color: #f44236;
+$success-color: #1de9b6;
+$purple-color: #a389d4;
+$info-color: #3ebfea;
+$secondary-color: #748892;
+$default-color: #d6d6d6;
+// $light-color: #f2f2f2;
+$dark-color: #37474f;
+$inverse-color: $dark-color;
+$theme-border: #eaeaea;

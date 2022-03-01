@@ -1,0 +1,93 @@
+//////////////////////////
+// Breakpoint Mixins    //
+//////////////////////////
+
+//min-width breakpoints for mobile and tab
+$g-bp-xxs: 375px;
+$g-bp-xs: 544px;
+$g-bp-sm: 769px;
+$g-bp-md: 992px;
+$g-bp-lg: 1200px;
+$g-bp-xl: 1400px;
+$g-bp-xxl: 1750px;
+
+// maxwidth breakpoints for mobile and tab
+$g-bpm-xxs: (max-width 375px); // mobile small
+$g-bpm-xs: (max-width 544px); // small tab and mobile landscape
+$g-bpm-sm: (max-width 769px); // small tabs
+$g-bpm-md: (max-width 992px); // large tabs
+$g-bpm-lg: (max-width 1200px);
+$g-bpm-xl: (max-width 1400px);
+$g-bpm-xxl: (max-width 1750px);
+
+
+//////////////////////////
+// min-width breakpoints  //
+//////////////////////////
+@mixin bp-xxs {
+  @media ($g-bp-xxs) {
+    @content;
+  }
+}
+@mixin bp-xs {
+  @media ($g-bp-xs) {
+    @content;
+  }
+}
+
+@mixin bp-sm {
+  @media ($g-bp-sm) {
+    @content;
+  }
+}
+
+@mixin bp-md {
+  @media ($g-bp-md) {
+    @content;
+  }
+}
+
+@mixin bp-lg {
+  @media ($g-bp-lg) {
+    @content;
+  }
+}
+
+@mixin bp-xl {
+  @media ($g-bp-xl) {
+    @content;
+  }
+}
+
+@mixin bp-xxl {
+  @media ($g-bp-xxl) {
+    @content;
+  }
+}
+
+//////////////////////////
+// max-width breakpoints  //
+//////////////////////////
+@mixin bpm-xxs {
+  @media ($g-bpm-xxs) {
+    @content;
+  }
+}
+
+@mixin bpm-xs {
+  @media ($g-bpm-xs) {
+    @content;
+  }
+}
+
+@mixin bpm-sm {
+  @media ($g-bpm-sm) {
+    @content;
+  }
+}
+
+@mixin bpm-md {
+  @media ($g-bpm-md) {
+    @content;
+  }
+}

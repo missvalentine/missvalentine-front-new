@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import React from 'react'
 
-export default function TopBanner({title,subtitle}) {
+const TopBanner=({title,subtitle})=> {
   return (
     <div className="hero-wrap hero-bread" style={{backgroundImage: "url('https://i.pinimg.com/564x/74/de/0a/74de0ae3bb01e3ab2ab03da4bb1985e6.jpg')"}}>
       <div className="container">
@@ -20,3 +20,4 @@ export default function TopBanner({title,subtitle}) {
     </div>
   )
 }
+export default TopBanner; 

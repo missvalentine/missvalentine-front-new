@@ -20,7 +20,6 @@ const Navbar=(props) => {
 	          <li className="nav-item active"> <Link href="/"><a className="nav-link">Home</a></Link></li>
 	          <li className="nav-item active"> <Link href="/shop"><a className="nav-link">Shop</a></Link></li>
 	          <li className="nav-item"> <Link href="/about"><a className="nav-link">About</a></Link></li>
-	          <li className="nav-item"> <Link href="/blog"><a className="nav-link">Blog</a></Link></li>
 	          <li className="nav-item"> <Link href="/contact"><a className="nav-link">Contact</a></Link></li>
 	          <li className="nav-item cta cta-colored"> <Link href="/cart"><a href="cart.html" className="nav-link"><span className="icon-shopping_cart"></span>[0]</a></Link></li>
 

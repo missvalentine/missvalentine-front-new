@@ -1,4 +1,5 @@
-import '../styles/globals.css';
+import '../styles/globals.scss';
+
 import '../styles/stockstyles/animate.css';
 import '../styles/stockstyles/ionicons.min.css';
 import '../styles/stockstyles/flaticon.css';

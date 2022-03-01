@@ -1,108 +1,66 @@
 import React from 'react'
 
-export default function TestimonySection() {
+import Carousel from 'react-multi-carousel'
+import 'react-multi-carousel/lib/styles.css'
+import { Slide } from 'react-reveal'
+import TestimonyCard from '../Card/TestimonyCard'
+import DisplayCard from '../CustomComponents/DisplayCard'
+
+const responsive = {
+  superLargeDesktop: {
+    // the naming can be any, depends on you.
+    breakpoint: { max: 4000, min: 3000 },
+    items: 1,
+  },
+  desktop: {
+    breakpoint: { max: 3000, min: 1024 },
+    items: 1,
+  },
+  tablet: {
+    breakpoint: { max: 1024, min: 464 },
+    items: 1,
+  },
+  mobile: {
+    breakpoint: { max: 464, min: 0 },
+    items: 1,
+  },
+}
+
+const TestimonySection = () => {
   return (
-    
-	<section className="ftco-section testimony-section bg-white">
-    <div className="container">
-        <div className="row justify-content-center mb-3 pb-3">
-            <div className="col-md-12 heading-section text-center ftco-animated ">
-                <h1 className="big">Testimony</h1>
-            </div>
-        </div>
+    <DisplayCard id="testimony" heading="Testimony" subHeading="">
         <div className="row justify-content-center">
+          <Slide right>
             <div className="col-md-8 ftco-animated fadeInLeft">
-                <div className="row ftco-animated fadeInLeft">
-                    <div className="col-md-12">
-                        <div className="carousel-testimony owl-carousel ftco-owl">
-                            <div className="item">
-                                <div className="testimony-wrap py-4 pb-5">
-                                    <div className="user-img mb-4" style={{ backgroundImage: `url(${"https://wallpapercave.com/wp/wp5734563.jpg"})`}}>
-                                        <span className="quote d-flex align-items-center justify-content-center">
-                                            <i className="icon-quote-left"></i>
-                                        </span>
-                                    </div>
-                                    <div className="text text-center">
-                                        <p className="mb-4">A small river named Duden flows by their place and supplies
-                                            it with the necessary regelialia. It is a paradisematic country, in
-                                            which roasted parts of sentences fly into your mouth.</p>
-                                        <p className="name">Roger Scott</p>
-                                        <span className="position">Customer</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="item">
-                                <div className="testimony-wrap py-4 pb-5">
-                                    <div className="user-img mb-4" style={{ backgroundImage: `url(${"https://wallpapercave.com/wp/wp5734563.jpg"})`}}>
-                                        <span className="quote d-flex align-items-center justify-content-center">
-                                            <i className="icon-quote-left"></i>
-                                        </span>
-                                    </div>
-                                    <div className="text text-center">
-                                        <p className="mb-4">A small river named Duden flows by their place and supplies
-                                            it with the necessary regelialia. It is a paradisematic country, in
-                                            which roasted parts of sentences fly into your mouth.</p>
-                                        <p className="name">Roger Scott</p>
-                                        <span className="position">Customer</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="item">
-                                <div className="testimony-wrap py-4 pb-5">
-                                    <div className="user-img mb-4" style={{ backgroundImage: `url(${"https://wallpapercave.com/wp/wp5734563.jpg"})`}}>
-                                        <span className="quote d-flex align-items-center justify-content-center">
-                                            <i className="icon-quote-left"></i>
-                                        </span>
-                                    </div>
-                                    <div className="text text-center">
-                                        <p className="mb-4">A small river named Duden flows by their place and supplies
-                                            it with the necessary regelialia. It is a paradisematic country, in
-                                            which roasted parts of sentences fly into your mouth.</p>
-                                        <p className="name">Roger Scott</p>
-                                        <span className="position">Customer</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="item">
-                                <div className="testimony-wrap py-4 pb-5">
-                                    <div className="user-img mb-4" style={{ backgroundImage: `url(${"https://wallpapercave.com/wp/wp5734563.jpg"})`}}>
-                                        <span className="quote d-flex align-items-center justify-content-center">
-                                            <i className="icon-quote-left"></i>
-                                        </span>
-                                    </div>
-                                    <div className="text text-center">
-                                        <p className="mb-4">A small river named Duden flows by their place and supplies
-                                            it with the necessary regelialia. It is a paradisematic country, in
-                                            which roasted parts of sentences fly into your mouth.</p>
-                                        <p className="name">Roger Scott</p>
-                                        <span className="position">Customer</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="item">
-                                <div className="testimony-wrap py-4 pb-5">
-                                    <div className="user-img mb-4" style={{ backgroundImage: `url(${"https://wallpapercave.com/wp/wp5734563.jpg"})`}}>
-                                        <span className="quote d-flex align-items-center justify-content-center">
-                                            <i className="icon-quote-left"></i>
-                                        </span>
-                                    </div>
-                                    <div className="text text-center">
-                                        <p className="mb-4">A small river named Duden flows by their place and supplies
-                                            it with the necessary regelialia. It is a paradisematic country, in
-                                            which roasted parts of sentences fly into your mouth.</p>
-                                        <p className="name">Roger Scott</p>
-                                        <span className="position">Customer</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+              <Slide bottom>
+                <Carousel
+                  swipeable={false}
+                  draggable={false}
+                  showDots={true}
+                  responsive={responsive}
+                  ssr={true} // means to render carousel on server-side.
+                  // infinite={true}
+                  //   autoPlay={this.props.deviceType !== "mobile" ? true : false}
+                  autoPlaySpeed={150000}
+                  keyBoardControl={true}
+                  customTransition="all .5"
+                  transitionDuration={500}
+                  containerClass="carousel-container"
+                  removeArrowOnDeviceType={['tablet', 'mobile']}
+                  //   deviceType={this.props.deviceType}
+                  dotListClass="custom-dot-list-style"
+                  itemClass="carousel-item-padding-40-px"
+                >
+                  <TestimonyCard />
+                  <TestimonyCard />
+                  <TestimonyCard />
+                  <TestimonyCard />
+                </Carousel>
+              </Slide>
             </div>
+          </Slide>
         </div>
-    </div>
-</section>
-
-
+    </DisplayCard>
   )
 }
+export default TestimonySection

@@ -1,4 +1,10 @@
 import React from 'react'
+import {
+  comapanyCustomerCareNo,
+  comapanyOfficeLocation,
+  comapanyUrl,
+  companyInfoEmail,
+} from '../../constant/projectSetting'
 
 export default function SendMessage() {
   return (
@@ -8,53 +14,123 @@ export default function SendMessage() {
           <div className="col-md-6 order-md-last d-flex">
             <form action="#" className="bg-white p-5 contact-form">
               <div className="form-group">
-                <input type="text" className="form-control" placeholder="Your Name" />
+                <input
+                  type="text"
+                  className="form-control"
+                  placeholder="Your Name"
+                />
               </div>
               <div className="form-group">
-                <input type="text" className="form-control" placeholder="Your Email" />
+                <input
+                  type="text"
+                  className="form-control"
+                  placeholder="Your Email"
+                />
               </div>
               <div className="form-group">
-                <input type="text" className="form-control" placeholder="Subject" />
+                <input
+                  type="text"
+                  className="form-control"
+                  placeholder="Subject"
+                />
               </div>
               <div className="form-group">
-                <textarea name="" id="" cols="30" rows="7" className="form-control" placeholder="Message"></textarea>
+                <textarea
+                  name=""
+                  id=""
+                  cols="30"
+                  rows="7"
+                  className="form-control"
+                  placeholder="Message"
+                ></textarea>
               </div>
               <div className="form-group">
-                <input type="submit" value="Send Message" className="btn btn-primary py-3 px-5" />
+                <input
+                  type="submit"
+                  value="Send Message"
+                  className="btn btn-primary py-3 px-5"
+                />
               </div>
             </form>
-          
           </div>
 
           <div className="col-md-6 d-flex">
-          	<div id="map" className="bg-white"></div>
+            <div id="map" className="bg-white p-4">
+              <iframe
+                title="map"
+                width="100%"
+                height="100%"
+                frameborder="0"
+                scrolling="no"
+                marginheight="0"
+                marginwidth="0"
+                className="c-homemap__map-map"
+                src="https://maps.google.com/maps?width=100%25&amp;height=400&amp;hl=en&amp;q=28%C2%B047'21.5%22N%2077%C2%B016'33.1%22E+(Missvalentine%20Innerwear%20Pvt.%20Ltd)&amp;t=&amp;z=17&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"
+              ></iframe>
+            </div>
           </div>
         </div>
         <div className="row d-flex mt-5 contact-info">
           <div className="w-100"></div>
           <div className="col-md-3 d-flex">
-          	<div className="info bg-white p-4">
-	            <p><span>Address:</span> 198 West 21th Street, Suite 721 New York NY 10016</p>
-	          </div>
+            <div className="info bg-white p-3">
+              <div>
+                <span className="icon icon-map-marker" />
+                &nbsp;
+                <span>Address</span>
+              </div>
+              <div className="ow-anywhere text-dark">
+                <a className=" text-dark" href="mailto:info@yoursite.com">
+                  {comapanyOfficeLocation}
+                </a>
+              </div>
+            </div>
           </div>
           <div className="col-md-3 d-flex">
-          	<div className="info bg-white p-4">
-	            <p><span>Phone:</span> <a href="tel://1234567920">+ 1235 2355 98</a></p>
-	          </div>
+            <div className="info bg-white p-3">
+              <div>
+                <span className="icon icon-phone" />
+                &nbsp;
+                <span>Phone</span>
+              </div>
+              <div className="ow-anywhere text-dark">
+                <a
+                  className=" text-dark"
+                  href={`tel:+91${comapanyCustomerCareNo}`}
+                >{`tel:+91${comapanyCustomerCareNo}`}</a>
+              </div>
+            </div>
           </div>
           <div className="col-md-3 d-flex">
-          	<div className="info bg-white p-4">
-	            <p><span>Email:</span> <a href="mailto:info@yoursite.com">info@yoursite.com</a></p>
-	          </div>
+            <div className="info bg-white p-3">
+              <div>
+                <span className="icon icon-envelope" />
+                &nbsp;
+                <span>Email</span>
+              </div>
+              <div className="ow-anywhere text-dark">
+                <a className=" text-dark" href="mailto:info@yoursite.com">
+                  {companyInfoEmail}
+                </a>
+              </div>
+            </div>
           </div>
           <div className="col-md-3 d-flex">
-          	<div className="info bg-white p-4">
-	            <p><span>Website</span> <a href="#">yoursite.com</a></p>
-	          </div>
+            <div className="info bg-white p-3">
+              <div>
+                <span className="icon icon-globe" />
+                &nbsp;
+                <span>Website</span>
+              </div>
+              <div className="ow-anywhere text-dark">
+                <a className=" text-dark" href={comapanyUrl}>
+                  {comapanyUrl}
+                </a>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </section>
-		
   )
 }

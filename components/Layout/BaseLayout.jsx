@@ -1,8 +1,9 @@
 import React from 'react';
+import dynamic from 'next/dynamic';
 
-import Navbar from '../Navbar/Navbar';
-import Footer from '../Footer/Footer';
-import NewsletterSection from '../Homepage/NewsletterSection';
+const Navbar = dynamic(() => import('../Navbar/Navbar'));
+const Footer = dynamic(() => import('../Footer/Footer'));
+const NewsletterSection = dynamic(() => import('../Homepage/NewsletterSection'));
 
 function withBaseLayout(WrappedComponent, props){
     const fixedNavbar= props?.fixedNavbar || true;

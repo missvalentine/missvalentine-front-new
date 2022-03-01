@@ -1,29 +1,31 @@
 import React from 'react'
+import { Slide } from 'react-reveal'
+import DisplayCard from '../CustomComponents/DisplayCard'
 
-export default function NewsletterSection() {
+const NewsletterSection = () => {
   return (
-	<section className="ftco-section-parallax">
-  <div className="parallax-img d-flex align-items-center">
-    <div className="container">
-      <div className="row d-flex justify-content-center py-5">
-        <div className="col-md-7 text-center heading-section ftco-animated fadeInUp">
-          <h1 className="big">Subscribe</h1>
-          <h2>Subcribe to our Newsletter</h2>
-          <div className="row d-flex justify-content-center mt-5">
-            <div className="col-md-8">
-              <form action="#" className="subscribe-form">
-                <div className="form-group d-flex">
-                  <input type="text" className="form-control" placeholder="Enter email address" />
-                  <input type="submit" value="Subscribe" className="submit px-3" />
-                </div>
-              </form>
+    <DisplayCard
+      id="trending"
+      heading="Subscribe"
+      subHeading="SUBCRIBE TO OUR NEWSLETTER"
+      bgColor="white"
+    >
+      <div className="row d-flex justify-content-center mt-5">
+        <div className="col-md-4">
+          <form action="#" className="subscribe-form">
+            <div className="form-group d-flex">
+              <input
+                type="text"
+                className="form-control"
+                placeholder="Enter email address"
+              />
+              <input type="submit" value="Subscribe" className="submit px-3" />
             </div>
-          </div>
+          </form>
         </div>
       </div>
-    </div>
-  </div>
-</section>
-
+    </DisplayCard>
   )
 }
+
+export default NewsletterSection

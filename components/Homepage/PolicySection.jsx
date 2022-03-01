@@ -22,7 +22,7 @@ export default function PolicySection() {
               <div className="media-body">
                 <h3 className="heading">Superior Quality</h3>
                 <p>
-                  The fabric used in our products are given the upmost priority.{' '}
+                  The fabric used in our products are given the upmost priority.
                   {projectName} range is pleasant to touch, and not rough or
                   hard.
                 </p>
@@ -39,8 +39,8 @@ export default function PolicySection() {
               <div className="media-body">
                 <h3 className="heading">Premium Packaging</h3>
                 <p>
-                  It's out norm to deliver the best in class product. Commitment
-                  to qaulity is our key moto.
+                  {`Its out norm to deliver the best in class product. Commitment
+                  to qaulity is our key moto.`}
                 </p>
               </div>
             </div>

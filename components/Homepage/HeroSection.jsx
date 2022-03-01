@@ -1,5 +1,5 @@
 import React from 'react'
-import bgImage from "../../assets/images/bg_1.jpeg";
+import bgImage from "../../public/images/bg_1.jpeg";
 import Image from "next/image";
 
 export default function HeroSection() {

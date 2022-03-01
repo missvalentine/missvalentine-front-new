@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import React from 'react'
-import productImg from "../../assets/images/product-3.jpg";
+import productImg from "../../public/images/product-3.jpg";
 
 export default function TrendingSection() {
   return (

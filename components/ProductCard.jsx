@@ -1,9 +1,8 @@
 import React from 'react'
 import Image from 'next/image';
-import productImg from "../assets/images/product-3.jpg";
+import productImg from "../public/images/product-3.jpg";
 
-export default function ProductCard()
-{
+export default function ProductCard(){
     return (
         <div className="product">
             <a href="#" className="img-prod"><Image height="700px" width="600px" className="img-fluid" src={productImg} alt="Colorlib Template" />

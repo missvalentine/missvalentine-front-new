@@ -34,7 +34,7 @@ const Footer=()=> {
               <h2 className="ftco-heading-2">Menu</h2>
               <ul className="list-unstyled">
                 <li>
-                  <Link href="shop">
+                  <Link href="/shop">
                     <a className="py-2 d-block">Shop</a>
                   </Link>
                 </li>

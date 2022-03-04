@@ -56,17 +56,17 @@ export default function SendMessage() {
 
           <div className="col-md-6 d-flex">
             <div id="map" className="bg-white p-4">
-              <iframe
-                title="map"
-                width="100%"
-                height="100%"
-                frameBorder="0"
-                scrolling="no"
-                marginHeight="0"
-                marginWidth="0"
-                className="c-homemap__map-map"
-                src="https://maps.google.com/maps?width=100%25&amp;height=400&amp;hl=en&amp;q=28%C2%B047'21.5%22N%2077%C2%B016'33.1%22E+(Missvalentine%20Innerwear%20Pvt.%20Ltd)&amp;t=&amp;z=17&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"
-              ></iframe>
+            <iframe
+          title="map"
+          width="100%"
+          height="100%"
+          frameborder="0"
+          scrolling="no"
+          marginheight="0"
+          marginwidth="0"
+          className="c-homemap__map-map"
+          src="https://maps.google.com/maps?width=100%25&amp;height=350&amp;hl=en&amp;q=28.787710189819336,77.28255462646484+(MissValentine%20Innerwear)&amp;t=&amp;z=20&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"
+        ></iframe>
             </div>
           </div>
         </div>
@@ -77,7 +77,7 @@ export default function SendMessage() {
               <div>
                 <span className="icon icon-map-marker" />
                 &nbsp;
-                <span>Address</span>
+                <span>Office Address</span>
               </div>
               <div className="ow-anywhere text-dark">
                 <a className=" text-dark" href="mailto:info@yoursite.com">

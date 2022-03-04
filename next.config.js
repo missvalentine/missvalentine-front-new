@@ -6,7 +6,12 @@ const nextConfig = {
   sassOptions: {
     includePaths: [path.join(__dirname, 'styles')],
     prependData: `@import "/styles/main.scss";`,
+  },
+  images: {
+    domains: ['missvalentine-images.s3.amazonaws.com'],
+    minimumCacheTTL: 3600,
 
+    // formats: ['image/jpeg', 'image/png'],
   },
 }
 

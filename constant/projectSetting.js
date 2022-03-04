@@ -1,5 +1,15 @@
+// Development Setting
+export const baseUrl = true
+  ? 'http://localhost:5000/api'
+  : 'https://missval.herokuapp.com/api';
+
+// Project Config
+export const isCartAvailable = false;
+export const keywordString = 'Buy ladies bras online from a range of sports, push up, padded & more at MissValentine. Find women bras in different colors, fabrics, patterns at best price.';
+
 //main inforamtiom
-export const projectName = "Miss Valentine";
+export const projectName = "MissValentine";
+export const projectDescription = "MissValentine is premium lingerie brand that provides comfortable fit, support with impeccable quality";
 export const comapanyUrl = "www.missvalentineinnerwear.com";
 export const companyInfoEmail = "info@missvalentineinnerwear.com";
 export const companyAdminEmail = "info@missvalentineinnerwear.com";
@@ -8,7 +18,7 @@ export const companyAdminEmail = "info@missvalentineinnerwear.com";
 export const comapanyCustomerCareNo = "7683037227";
 export const comapanyAlternateNo = "9999217125";
 
-export const comapanyOfficeLocation = "I -18, sec. A-1, Tronica city, Loni Ghaziabad, Uttar Pradesh 201102";
+export const comapanyOfficeLocation = "G-238, Sector D-1 (P-3), Tronica city, Loni Ghaziabad, Uttar Pradesh 201102";
 export const comapanyAlternateOfficeLocation = "E-6A/235 k.H no-1435 E- Block Gali no 6A Sangam Vihar, New Delhi 110080 INDIA";
 export const companyHQCountry = "India";
 export const companyHQState = "Uttar Pradesh";

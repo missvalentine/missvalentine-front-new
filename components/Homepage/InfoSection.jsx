@@ -5,6 +5,7 @@ import {
   projectName,
 } from '../../constant/projectSetting'
 import Slide from 'react-reveal/Slide'
+import Image from 'next/image'
 
 const InfoSection = () => {
   return (
@@ -12,20 +13,25 @@ const InfoSection = () => {
       <div className="container">
         <div className="row">
           <div
-            className="col-md-5 p-md-5 img img-2 d-flex justify-content-center align-items-center"
+            className="col-md-5 img img-2 d-flex justify-content-center align-items-center"
             style={{
               height: '100vh',
-              backgroundImage: `url(${'https://wallpapercave.com/wp/wp5734563.jpg'})`,
             }}
           >
-            <a
+            <Image
+              layout="fill"
+              src="/images/models/model3.jpeg"
+              className=""
+            />
+            {/* <a
               href="https://vimeo.com/45830194"
               className="icon popup-vimeo d-flex justify-content-center align-items-center"
             >
               <span className="icon-play"></span>
-            </a>
+            </a> */}
           </div>
-          <Slide bottom >
+
+          <Slide bottom>
             <div className="col-md-7 py-5 wrap-about pb-md-5">
               <div className="heading-section-bold mb-5 mt-md-5">
                 <div className="ml-md-0">
@@ -43,4 +49,4 @@ const InfoSection = () => {
     </section>
   )
 }
-export default InfoSection;
+export default InfoSection

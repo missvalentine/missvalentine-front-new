@@ -9,11 +9,12 @@ const DisplayCard = (props) => {
     subHeading = 'subHeading',
     children,
     bgColor = 'white',
-    addClassName=""
+    addClassName="",
+    containerClassName
   } = props
 
   return (
-    <section id={id} className={`ftco-section ftco-product bg-${bgColor} ${addClassName}`}>
+    <section id={id} className={containerClassName || `ftco-section ftco-product bg-${bgColor} ${addClassName}`}>
       <div className="container">
         <div className="row justify-content-center mb-3 pb-3">
           <div className="col-md-12 heading-section text-center">

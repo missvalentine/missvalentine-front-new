@@ -6,6 +6,7 @@ import Slide from 'react-reveal/Slide'
 import 'react-multi-carousel/lib/styles.css'
 import ProductCard from '../ProductCard'
 import DisplayCard from '../CustomComponents/DisplayCard'
+import { useSelector } from 'react-redux'
 
 const responsive = {
   superLargeDesktop: {
@@ -27,7 +28,7 @@ const responsive = {
   },
 }
 const TrendingSection = () => {
-  const products = [1, 2, 3, 4]
+  const allProducts = useSelector(state=>state.productListState.allProducts);
   return (
     <DisplayCard id="trending" heading="Trending" subHeading="Trending">
             <Carousel
@@ -48,10 +49,12 @@ const TrendingSection = () => {
               dotListClass="custom-dot-list-style"
               itemClass="carousel-item-padding-40-px px-4"
             >
-              {products.map((product, index) => (
+              {allProducts?.map((product, index) => (
                 <Slide key={index} className="p-2" bottom>
                   <ProductCard
-                    imageSrc={`/images/product-${index + 1}.jpg`}
+                    productName={product.name}
+                    slug={product.slug}
+                    imageSrc={product.images[0].data}
                     hideAddToCart
                   />
                 </Slide>

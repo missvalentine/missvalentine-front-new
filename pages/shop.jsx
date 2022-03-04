@@ -6,7 +6,7 @@ import ProductList from '../components/Shop/ProductList';
 
 const Shop=()=> {
     return (
-    <div> 
+    <div>
         <TopBanner title="Collection" subtitle="Product"/>
         <ProductList />
     </div>

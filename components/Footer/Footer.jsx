@@ -16,11 +16,9 @@ const Footer=()=> {
               <ul className="ftco-footer-social list-unstyled float-md-left float-lft mt-5">
                 {socialLinks.map((socialLink) => (
                   <li key={socialLink.name}>
-                    <Link href={socialLink.link}>
-                      <a>
+                      <a target="_blank" href={socialLink.link}>
                         <span className={socialLink.iconClass}></span>
                       </a>
-                    </Link>
                   </li>
                 ))}
 
@@ -34,8 +32,13 @@ const Footer=()=> {
               <h2 className="ftco-heading-2">Menu</h2>
               <ul className="list-unstyled">
                 <li>
-                  <Link href="/shop">
+                  <Link href="/shop/all">
                     <a className="py-2 d-block">Shop</a>
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/enquiry-form">
+                    <a className="py-2 d-block">Enquiry Form</a>
                   </Link>
                 </li>
                 <li>

@@ -1,7 +1,7 @@
 import React from 'react'
 import dynamic from 'next/dynamic'
 import {
-  keywordString,
+  keywordArray,
   projectDescription,
   projectName,
 } from '../../constant/projectSetting'
@@ -24,7 +24,7 @@ function withBaseLayout(WrappedComponent, props) {
             key="description"
           />
           <meta name="description" content={projectDescription} />
-          <meta name="keywords" content={keywordString.replaceAll(' ', ',')} />
+          <meta name="keywords" content={keywordArray} />
           <meta httpEquiv="Content-Type" content="text/html; charset=utf-8" />
           <meta name="viewport" content="width=device-width, initial-scale=1" />
           <link rel="icon" href="/images/favicon.ico" />

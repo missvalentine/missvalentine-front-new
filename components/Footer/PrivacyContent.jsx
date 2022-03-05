@@ -75,7 +75,7 @@ const PrivacyContent =()=>{
                         USE OF INFORMATION COLLECTED
 
                     </h3>
-                    <p>
+                    <div>
                         We may use the information we collect from you in a variety of ways, such as, for example, to:
                         <ul>
                             <li>Facilitate your use of the Site, the App and/or their respective products and/or services;
@@ -112,7 +112,7 @@ const PrivacyContent =()=>{
 
                         </div>
 
-                    </p>
+                    </div>
                 </div>
                 <div className="row">
                     <h3>

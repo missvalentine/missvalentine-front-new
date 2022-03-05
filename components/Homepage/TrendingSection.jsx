@@ -50,11 +50,9 @@ const TrendingSection = () => {
               itemClass="carousel-item-padding-40-px px-4"
             >
               {allProducts?.map((product, index) => (
-                <Slide key={index} className="p-2" bottom>
+                <Slide  key={product.name} className="p-2" bottom>
                   <ProductCard
-                    productName={product.name}
-                    slug={product.slug}
-                    imageSrc={product.images[0].data}
+                    product={product}
                     hideAddToCart
                   />
                 </Slide>

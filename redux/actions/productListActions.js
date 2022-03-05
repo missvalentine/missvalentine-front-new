@@ -5,6 +5,11 @@ export const setAllProducts = (products) => async (dispatch) => dispatch({
   payload: products,
 });
 
+export const addProductToRecent = (product) => async (dispatch) => dispatch({
+  type: "ADD_TO_RECENTLY_VIEWD",
+  payload: product,
+});
+
 export const getAllProducts = () => async (dispatch) => {
   try {
     const { data } = await callApi({

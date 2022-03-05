@@ -1,12 +1,28 @@
 import Image from 'next/image'
 import React, { useState } from 'react'
+import { useDispatch } from 'react-redux'
+import { toast } from 'react-toastify'
+import { addItemToCart } from '../../redux/actions/cartActions'
 import style from '../../styles/components/ProductView.module.scss'
 import { getColorCode } from '../../utils/helperFunction'
 
 const ProductView = (props) => {
   const { product } = props
-  const [quantity, setQuantity] = useState(1)
+  const dispatch = useDispatch()
+  const [quantity, setQuantity] = useState(1);
+  const [color, setColor] = useState("");
+  const [size, setSize] = useState("");
 
+  const handleAddToCart = () => {
+    dispatch(addItemToCart(product))
+    toast.success('Item Added to Cart Successfully!')
+  }
+  const handleDecreaseQuantity = () => {
+    setQuantity((q) => (q >= 1 ? q - 1 : 0))
+  }
+  const handleIncreaseQuantity = () => {
+    setQuantity((q) => q + 1)
+  }
   return (
     <section className="ftco-section-extra bg-light">
       <div className="container">
@@ -81,7 +97,7 @@ const ProductView = (props) => {
                     className="quantity-left-minus btn"
                     data-type="minus"
                     data-field=""
-                    onClick={() => setQuantity((q) => q - 1)}
+                    onClick={handleDecreaseQuantity}
                   >
                     <i className="ion-ios-remove"></i>
                   </button>
@@ -101,7 +117,7 @@ const ProductView = (props) => {
                     className="quantity-right-plus btn"
                     data-type="plus"
                     data-field=""
-                    onClick={() => setQuantity((q) => q + 1)}
+                    onClick={handleIncreaseQuantity}
                   >
                     <i className="ion-ios-add"></i>
                   </button>
@@ -120,7 +136,10 @@ const ProductView = (props) => {
               >
                 Whatsapp Enquiry
               </a>
-              <div className="col-5  btn btn-primary py-3 px-5">
+              <div
+                onClick={handleAddToCart}
+                className="col-5  btn btn-primary py-3 px-5"
+              >
                 Add to Cart
               </div>
             </div>

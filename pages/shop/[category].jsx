@@ -20,7 +20,8 @@ const Shop = (props) => {
   )
 
   useEffect(() => {
-    if (categorySlug !== 'all') dispatch(addCategoryData(categoryData))
+    if (categorySlug !== 'all') dispatch(addCategoryData(categoryData));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [categorySlug])
 
   return (
@@ -29,7 +30,7 @@ const Shop = (props) => {
       <section className="ftco-section-4 bg-light">
         <div className="container-fluid">
           <div className="mb-5">
-            <Link href={`/shop/all`}>
+            <Link href={`/shop/all`} passHref>
               <h5
                 className={`d-inline-block mr-4 ${
                   categorySlug === 'all' ? 'text-dark' : 'text-secondary'
@@ -40,7 +41,7 @@ const Shop = (props) => {
             </Link>
 
             {allCategories.filter((_category)=> _category.products.length >=1).map((_category) => (
-              <Link key={_category.name} href={`/shop/${_category.slug}`}>
+              <Link key={_category.name} href={`/shop/${_category.slug}`} passHref>
                 <h5
                   className={`d-inline-block mr-4 ${
                     categorySlug === _category.slug

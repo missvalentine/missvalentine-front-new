@@ -16,7 +16,7 @@ const Footer=()=> {
               <ul className="ftco-footer-social list-unstyled float-md-left float-lft mt-5">
                 {socialLinks.map((socialLink) => (
                   <li key={socialLink.name}>
-                      <a target="_blank" href={socialLink.link}>
+                      <a target="_blank" rel="noreferrer"  href={socialLink.link}>
                         <span className={socialLink.iconClass}></span>
                       </a>
                   </li>

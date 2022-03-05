@@ -17,7 +17,7 @@ const ProductBySlug = (props) => {
 
   useEffect(() => {
     dispatch(addProductToRecent(product));
-
+// eslint-disable-next-line react-hooks/exhaustive-deps
   }, [product.slug]);
 
   const productListState = useSelector(

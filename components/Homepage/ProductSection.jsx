@@ -8,8 +8,8 @@ import { useSelector } from 'react-redux'
 
 const ProductSection = (props) => {
   const { productList, containerClassName, heading, subHeading } = props
-  const allProducts = productList || useSelector((state) => state.productListState.allProducts);
-
+  const allProductsState = useSelector((state) => state.productListState.allProducts);
+  const allProducts = productList || allProductsState;
   return (
     <DisplayCard
       id="product"

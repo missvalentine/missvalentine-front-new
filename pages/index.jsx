@@ -32,7 +32,7 @@ const Home = (props) => {
   useEffect(() => {
     dispatch(setAllProducts(productListData));
     dispatch(setAllCategories(categoryData));
-
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (

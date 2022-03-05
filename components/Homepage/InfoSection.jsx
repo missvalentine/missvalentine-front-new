@@ -22,6 +22,7 @@ const InfoSection = () => {
               layout="fill"
               src="/images/models/model3.jpeg"
               className=""
+              alt='missvalentine bra model'
             />
             {/* <a
               href="https://vimeo.com/45830194"

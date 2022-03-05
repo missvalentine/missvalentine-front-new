@@ -8,10 +8,10 @@ const OfficeMap=()=> {
       title="map"
       width="100%"
       height="400px"
-      frameborder="0"
+      frameBorder="0"
       scrolling="no"
-      marginheight="0"
-      marginwidth="0"
+      marginHeight="0"
+      marginWidth="0"
       className="c-homemap__map-map"
       src="https://maps.google.com/maps?width=100%25&amp;height=350&amp;hl=en&amp;q=28.787710189819336,77.28255462646484+(MissValentine%20Innerwear)&amp;t=&amp;z=20&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"
     ></iframe>

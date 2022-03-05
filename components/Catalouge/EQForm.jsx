@@ -65,7 +65,7 @@ const EQform =()=> {
                     </div> */}
                     <h5>Product Category</h5>
                     <select name="" id="" className="form-control">
-                      {allCategories.map(_category=> <option value={_category.slug}>{_category.name}</option>)}
+                      {allCategories.map(_category=> <option key={_category.name} value={_category.slug}>{_category.name}</option>)}
                     </select>
                   </div>
             </div>

@@ -32,7 +32,7 @@ const ProductListView = (props) => {
             </thead>
             <tbody>
               {products?.map((product, index) => (
-                <Slide left>
+                <Slide left key={product.name}>
                 <tr
                   key={`cart-${product.name} ${index}`}
                   className="text-center"
@@ -43,6 +43,7 @@ const ProductListView = (props) => {
                     height="130px"
                       src={product.images[0].data}
                       className="img"
+                      alt='bra-product'
                     />
                     <div
                       style={{

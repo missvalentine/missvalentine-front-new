@@ -35,7 +35,7 @@ const ContactForm = () => {
       <div className="col-md-5 ">
       
         {contactOptions.map((_option) => (
-          <div className="form-group ">
+          <div key={_option.heading} className="form-group ">
             <div className="row align-items-center">
               <div className="col-1">
                 <input type="radio" name="optradio" className="text-primary" />

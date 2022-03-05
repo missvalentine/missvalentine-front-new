@@ -54,8 +54,7 @@ const ProductListView = (props) => {
                   <td className="product-name">
                     <h3>{product.name}</h3>
                     <p>
-                      Far far away, behind the word mountains, far from the
-                      countries
+                      It is a must-have in your lingerie wardrobe
                     </p>
                   </td>
 

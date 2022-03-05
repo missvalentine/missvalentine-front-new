@@ -10,7 +10,6 @@ const nextConfig = {
   images: {
     domains: ['missvalentine-images.s3.amazonaws.com'],
     minimumCacheTTL: 3600,
-    loader: 'imgix',
 
     // formats: ['image/jpeg', 'image/png'],
   },

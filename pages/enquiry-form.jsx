@@ -1,5 +1,5 @@
 import React from 'react'
-import EQform from '../components/Catalouge/EQform';
+import EQform from '../components/Catalouge/EQForm';
 import TopBanner from '../components/CustomComponents/TopBanner';
 import withBaseLayout from '../components/Layout/BaseLayout';
 

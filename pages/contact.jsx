@@ -1,15 +1,23 @@
 import React from 'react'
-import SendMessage from '../components/ConactUs/SendMessage';
-import TopBanner from '../components/CustomComponents/TopBanner';
-import withBaseLayout from '../components/Layout/BaseLayout';
+import ContactForm from '../components/ConactUs/ContactForm'
+import ContactInfo from '../components/ConactUs/ContactInfo'
+import OfficeMap from '../components/ConactUs/OfficeMap'
+import TopBanner from '../components/CustomComponents/TopBanner'
+import withBaseLayout from '../components/Layout/BaseLayout'
 
-const contact=()=> {
+const contact = () => {
   return (
-    <div> 
-      <TopBanner title="Contact Us" subtitle="Conact"/>
-      <SendMessage />
+    <div>
+      <TopBanner title="Contact Us" subtitle="Conact" />
+      <section className="ftco-section-2 contact-section bg-light">
+        <div className="container">
+          <ContactForm />
+          <ContactInfo />
+          <OfficeMap />
+        </div>
+      </section>
     </div>
   )
 }
 
-export default withBaseLayout(contact); 
+export default withBaseLayout(contact)

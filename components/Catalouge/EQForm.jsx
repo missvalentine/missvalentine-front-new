@@ -6,7 +6,7 @@ import {
   companyInfoEmail,
 } from '../../constant/projectSetting'
 
-const SendMessage =()=> {
+const EnquiryForm =()=> {
   return (
     <section className="ftco-section contact-section bg-light">
       <div className="container">
@@ -52,22 +52,6 @@ const SendMessage =()=> {
                 />
               </div>
             </form>
-          </div>
-
-          <div className="col-md-6 d-flex">
-            <div id="map" className="bg-white p-4">
-            <iframe
-          title="map"
-          width="100%"
-          height="100%"
-          frameborder="0"
-          scrolling="no"
-          marginheight="0"
-          marginwidth="0"
-          className="c-homemap__map-map"
-          src="https://maps.google.com/maps?width=100%25&amp;height=350&amp;hl=en&amp;q=28.787710189819336,77.28255462646484+(MissValentine%20Innerwear)&amp;t=&amp;z=20&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"
-        ></iframe>
-            </div>
           </div>
         </div>
         <div className="row d-flex mt-5 contact-info">
@@ -135,4 +119,4 @@ const SendMessage =()=> {
   )
 }
 
-export default SendMessage;
+export default EnquiryForm;

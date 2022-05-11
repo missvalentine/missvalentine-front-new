@@ -1,5 +1,5 @@
 // Development Setting
-export const baseUrl = true
+export const baseUrl = false
   ? 'http://localhost:5000/api'
   : 'https://missval.herokuapp.com/api'
 

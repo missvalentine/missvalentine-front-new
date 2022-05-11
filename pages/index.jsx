@@ -26,14 +26,14 @@ import { setAllProducts } from '../redux/actions/productListActions'
 import { setAllCategories } from '../redux/actions/categoryActions'
 
 const Home = (props) => {
-  const dispatch = useDispatch();
-  const { productListData, categoryData } = props;
-  
+  const dispatch = useDispatch()
+  const { productListData, categoryData } = props
+
   useEffect(() => {
-    dispatch(setAllProducts(productListData));
-    dispatch(setAllCategories(categoryData));
+    dispatch(setAllProducts(productListData))
+    dispatch(setAllCategories(categoryData))
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [])
 
   return (
     <React.Fragment>
@@ -51,19 +51,21 @@ const Home = (props) => {
   )
 }
 
-
 export async function getStaticProps() {
   const response = await callApi({
-    url: `/product/all?limit=12`,
-  });
+    url: `/product/all`,
+    // url: `/product/all?limit=12`,
+  })
   const categoryResponse = await callApi({
     url: `/category/all`,
-  });
+  })
 
   return {
     props: {
       productListData: response?.data?.success ? response?.data?.data : [],
-      categoryData: categoryResponse?.data?.success ? categoryResponse?.data?.data : [],
+      categoryData: categoryResponse?.data?.success
+        ? categoryResponse?.data?.data
+        : [],
     },
   }
 }

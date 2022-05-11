@@ -1,20 +1,27 @@
+import Image from 'next/image'
 import React from 'react'
-
-export default function TestimonyCard() {
+// public/images/avatars/avata-female-1.png
+export default function TestimonyCard(props) {
+  const { imageSrc, author, comment, position } = props
   return (
-    <div className="testimony-wrap py-4 pb-5">
-        <div className="user-img mb-4" style={{ backgroundImage: `url(${"https://wallpapercave.com/wp/wp5734563.jpg"})`}}>
-            <span className="quote d-flex align-items-center justify-content-center">
-                <i className="icon-quote-left"></i>
-            </span>
-        </div>
-        <div className="text text-center">
-            <p className="mb-4">A small river named Duden flows by their place and supplies
-                it with the necessary regelialia. It is a paradisematic country, in
-                which roasted parts of sentences fly into your mouth.</p>
-            <p className="name">Roger Scott</p>
-            <span className="position">Customer</span>
-        </div>
+    <div className="testimony-wrap py-4 pb-5 text-center">
+      <div className="user-img mb-4">
+        <Image
+          src={imageSrc}
+          className="user-img"
+          alt="missvalentine bra model"
+          width="100px"
+          height="100px"
+        />
+        <span className="quote d-flex align-items-center justify-content-center">
+          <i className="icon-quote-left"></i>
+        </span>
+      </div>
+      <div className="text text-center">
+        <p className="mb-4">{comment}</p>
+        <p className="name">{author}</p>
+        <span className="position">{position}</span>
+      </div>
     </div>
-    )
+  )
 }

@@ -20,9 +20,10 @@ const Shop = (props) => {
   )
 
   useEffect(() => {
-    if (categorySlug !== 'all') dispatch(addCategoryData(categoryData));
+    if (categorySlug !== 'all') dispatch(addCategoryData(categoryData))
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [categorySlug])
+  console.log('allCategories', allCategories)
 
   return (
     <div>
@@ -40,19 +41,25 @@ const Shop = (props) => {
               </h5>
             </Link>
 
-            {allCategories.filter((_category)=> _category.products.length >=1).map((_category) => (
-              <Link key={_category.name} href={`/shop/${_category.slug}`} passHref>
-                <h5
-                  className={`d-inline-block mr-4 ${
-                    categorySlug === _category.slug
-                      ? 'text-dark'
-                      : 'text-secondary'
-                  }`}
+            {allCategories
+              .filter((_category) => _category.products.length >= 1)
+              .map((_category) => (
+                <Link
+                  key={_category.name}
+                  href={`/shop/${_category.slug}`}
+                  passHref
                 >
-                  {_category.name}
-                </h5>
-              </Link>
-            ))}
+                  <h5
+                    className={`d-inline-block mr-4 ${
+                      categorySlug === _category.slug
+                        ? 'text-dark'
+                        : 'text-secondary'
+                    }`}
+                  >
+                    {_category.name}
+                  </h5>
+                </Link>
+              ))}
           </div>
           <ProductList
             products={
@@ -61,14 +68,25 @@ const Shop = (props) => {
                 : allCategoriesData[categorySlug]?.products || []
             }
           />
-          <Pagination />
+          {/* <Pagination /> */}
         </div>
       </section>
     </div>
   )
 }
+export async function getStaticPaths() {
+  const categoryResponse = await callApi({
+    url: `/category/all`,
+  })
+  const paths = categoryResponse?.data?.data.map((cate) => `/shop/${cate.name}`)
+  paths.unshift(`/shop/all`)
+  return {
+    paths: paths,
+    fallback: true,
+  }
+}
 
-export async function getServerSideProps(context) {
+export async function getStaticProps(context) {
   const categorySlug = context.params.category
 
   if (categorySlug !== 'all') {

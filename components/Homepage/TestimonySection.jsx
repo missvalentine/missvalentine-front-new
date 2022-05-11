@@ -25,41 +25,72 @@ const responsive = {
     items: 1,
   },
 }
+const testimonyData = [
+  {
+    author: 'Sakshi Goyal',
+    position: 'customer',
+    imageSrc: '/images/avatars/avatar-female-5.png',
+    comment: 'Product feel is really good',
+  },
+  {
+    author: 'Anonymous',
+    position: 'customer',
+    imageSrc: '/images/avatars/avatar-female-2.png',
+    comment: 'nice product. must try',
+  },
+  {
+    author: 'Anonymous',
+    position: 'customer',
+    imageSrc: '/images/avatars/avatar-female-4.png',
+    comment:
+      'quality is very good in this price range. make it very comfortable to wear day to day.',
+  },
+  {
+    author: 'Anonymous',
+    position: 'customer',
+    imageSrc: '/images/avatars/avatar-female-1.png',
+    comment: 'comfortable',
+  },
+]
 
 const TestimonySection = () => {
   return (
     <DisplayCard id="testimony" heading="Testimony" subHeading="">
-        <div className="row justify-content-center">
-          <Slide right>
-            <div className="col-md-8 ftco-animated fadeInLeft">
-              <Slide bottom>
-                <Carousel
-                  swipeable={false}
-                  draggable={false}
-                  showDots={true}
-                  responsive={responsive}
-                  ssr={true} // means to render carousel on server-side.
-                  // infinite={true}
-                  //   autoPlay={this.props.deviceType !== "mobile" ? true : false}
-                  autoPlaySpeed={150000}
-                  keyBoardControl={true}
-                  customTransition="all .5"
-                  transitionDuration={500}
-                  containerClass="carousel-container"
-                  removeArrowOnDeviceType={['tablet', 'mobile']}
-                  //   deviceType={this.props.deviceType}
-                  dotListClass="custom-dot-list-style"
-                  itemClass="carousel-item-padding-40-px"
-                >
-                  <TestimonyCard />
-                  <TestimonyCard />
-                  <TestimonyCard />
-                  <TestimonyCard />
-                </Carousel>
-              </Slide>
-            </div>
-          </Slide>
-        </div>
+      <div className="row justify-content-center testinomy-container">
+        <Slide right>
+          <div className="col-md-8 ftco-animated fadeInLeft">
+            <Slide bottom>
+              <Carousel
+                swipeable={false}
+                draggable={false}
+                showDots={true}
+                responsive={responsive}
+                ssr={true} // means to render carousel on server-side.
+                // infinite={true}
+                //   autoPlay={this.props.deviceType !== "mobile" ? true : false}
+                autoPlaySpeed={150000}
+                keyBoardControl={true}
+                customTransition="all .5"
+                transitionDuration={500}
+                containerClass="carousel-container"
+                removeArrowOnDeviceType={['tablet', 'mobile']}
+                //   deviceType={this.props.deviceType}
+                dotListClass="custom-dot-list-style"
+                itemClass="carousel-item-padding-40-px"
+              >
+                {testimonyData.map((testimony) => (
+                  <TestimonyCard
+                    author={testimony.author}
+                    imageSrc={testimony.imageSrc}
+                    position={testimony.position}
+                    comment={testimony.comment}
+                  />
+                ))}
+              </Carousel>
+            </Slide>
+          </div>
+        </Slide>
+      </div>
     </DisplayCard>
   )
 }

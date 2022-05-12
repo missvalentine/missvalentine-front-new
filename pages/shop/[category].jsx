@@ -50,7 +50,7 @@ const Shop = (props) => {
                   passHref
                 >
                   <h5
-                    className={`d-inline-block mr-4 ${
+                    className={`d-inline-block mr-4 pointer ${
                       categorySlug === _category.slug
                         ? 'text-dark'
                         : 'text-secondary'

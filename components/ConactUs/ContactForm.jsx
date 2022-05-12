@@ -87,7 +87,7 @@ const ContactForm = () => {
         <div className="col-md-5 ">
           {contactOptions.map((_option) => (
             <label
-              for={_option.type}
+              htmlFor={_option.type}
               key={_option.heading}
               className="form-group"
             >

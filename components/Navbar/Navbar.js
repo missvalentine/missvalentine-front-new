@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import Link from 'next/link'
 import React, { useState } from 'react'
 import { useSelector } from 'react-redux'
@@ -98,10 +99,11 @@ const Navbar = (props) => {
               >
                 <div className="nav-link pointer">
                   {isLoggedIn ? (
-                    <img
+                    <Image
                       width="25px"
                       height="25px"
                       // className="pointer"
+                      alt="user logo"
                       src="https://images.all-free-download.com/images/graphiclarge/lady_avatar_template_handdrawn_colored_closeup_6849758.jpg"
                     />
                   ) : (

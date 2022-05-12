@@ -78,12 +78,13 @@ const TestimonySection = () => {
                 dotListClass="custom-dot-list-style"
                 itemClass="carousel-item-padding-40-px"
               >
-                {testimonyData.map((testimony) => (
+                {testimonyData.map((testimony, index) => (
                   <TestimonyCard
                     author={testimony.author}
                     imageSrc={testimony.imageSrc}
                     position={testimony.position}
                     comment={testimony.comment}
+                    key={`${testimony.author} ${index}`}
                   />
                 ))}
               </Carousel>

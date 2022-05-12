@@ -17,7 +17,7 @@ const Loader = (props) => {
       return (
         <div>
           {children}
-          <div class="loading-container">{loader}</div>
+          <div className="loading-container">{loader}</div>
         </div>
       )
     return children

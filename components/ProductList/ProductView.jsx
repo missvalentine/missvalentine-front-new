@@ -5,7 +5,7 @@ import { toast } from 'react-toastify'
 import { isCartAvailable } from '../../constant/projectSetting'
 import { addItemToCart } from '../../redux/actions/cartActions'
 import styles from '../../styles/components/ProductView.module.scss'
-import { getColorCode } from '../../utils/helperFunction'
+import { getColorCode, imageLoader } from '../../utils/helperFunction'
 import Modal from '../CustomComponents/Modal'
 
 const modalStyles = {
@@ -53,6 +53,7 @@ const ProductView = (props) => {
                 src={product.images[0].data}
                 className="img-fluid"
                 alt={product.name}
+                loader={imageLoader}
                 // placeholder="blur"
                 // blurDataURL={product.images[0].data}
               />
@@ -180,6 +181,7 @@ const ProductView = (props) => {
           src={product.images[0].data}
           className="img-fluid"
           alt={product.images[0].data}
+          loader={imageLoader}
           // placeholder="blur"
           // blurDataURL={product.images[0].data}
         />

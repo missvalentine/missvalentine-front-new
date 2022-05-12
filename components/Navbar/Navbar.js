@@ -3,6 +3,7 @@ import Link from 'next/link'
 import React, { useState } from 'react'
 import { useSelector } from 'react-redux'
 import { isCartAvailable, projectName } from '../../constant/projectSetting'
+import { imageLoader } from '../../utils/helperFunction'
 import Modal from '../CustomComponents/Modal'
 import LoginBox from '../Login/LoginBox'
 
@@ -103,6 +104,7 @@ const Navbar = (props) => {
                       width="25px"
                       height="25px"
                       // className="pointer"
+                      loader={imageLoader}
                       alt="user logo"
                       src="https://images.all-free-download.com/images/graphiclarge/lady_avatar_template_handdrawn_colored_closeup_6849758.jpg"
                     />

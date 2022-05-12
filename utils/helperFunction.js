@@ -33,3 +33,7 @@ export const shuffleArray = (array) => {
     ;[array[i], array[j]] = [array[j], array[i]]
   }
 }
+
+export const imageLoader = ({ src, width, quality }) => {
+  return src
+}

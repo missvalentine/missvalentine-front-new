@@ -5,6 +5,7 @@ import { useDispatch } from 'react-redux'
 import { Slide } from 'react-reveal'
 import { toast } from 'react-toastify'
 import { removeItemToCart } from '../../redux/actions/cartActions'
+import { imageLoader } from '../../utils/helperFunction'
 
 const ProductListView = (props) => {
   const { products } = props
@@ -44,6 +45,7 @@ const ProductListView = (props) => {
                         src={product.images[0].data}
                         className="img"
                         alt="bra-product"
+                        loader={imageLoader}
                         // placeholder="blur"
                         // blurDataURL={product.images[0].data}
                       />

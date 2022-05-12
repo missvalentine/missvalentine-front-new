@@ -1,5 +1,6 @@
 import Image from 'next/image'
 import React from 'react'
+import { imageLoader } from '../../utils/helperFunction'
 // public/images/avatars/avata-female-1.png
 export default function TestimonyCard(props) {
   const { imageSrc, author, comment, position } = props
@@ -12,6 +13,7 @@ export default function TestimonyCard(props) {
           alt="missvalentine bra model"
           width="100px"
           height="100px"
+          loader={imageLoader}
           // placeholder="blur"
           // blurDataURL={imageSrc}
         />

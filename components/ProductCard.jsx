@@ -6,10 +6,8 @@ import { useDispatch } from 'react-redux'
 import { addItemToCart } from '../redux/actions/cartActions'
 import { toast } from 'react-toastify'
 import styles from '../styles/components/ProductCard.module.scss'
+import { imageLoader } from '../utils/helperFunction'
 
-const imageLoader = ({ src, width, quality }) => {
-  return src
-}
 const ProductCard = (props) => {
   const {
     product,
@@ -61,6 +59,7 @@ const ProductCard = (props) => {
           className="img-fluid"
           src={product.images[0].data}
           alt={`${product.name} image`}
+          loader={imageLoader}
           // placeholder="blur"
           // blurDataURL={product.images[0].data}
         />

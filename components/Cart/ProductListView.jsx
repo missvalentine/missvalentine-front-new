@@ -44,8 +44,8 @@ const ProductListView = (props) => {
                         src={product.images[0].data}
                         className="img"
                         alt="bra-product"
-                        placeholder="blur"
-                        blurDataURL={product.images[0].data}
+                        // placeholder="blur"
+                        // blurDataURL={product.images[0].data}
                       />
                       <div
                         style={{

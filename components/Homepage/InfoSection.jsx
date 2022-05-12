@@ -22,7 +22,9 @@ const InfoSection = () => {
               layout="fill"
               src="/images/models/model3.jpeg"
               className=""
-              alt='missvalentine bra model'
+              alt="missvalentine bra model"
+              placeholder="blur"
+              blurDataURL="/images/models/model3.jpeg"
             />
             {/* <a
               href="https://vimeo.com/45830194"

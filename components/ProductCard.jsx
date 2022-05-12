@@ -62,8 +62,7 @@ const ProductCard = (props) => {
           src={product.images[0].data}
           alt={`${product.name} image`}
           placeholder="blur"
-          blurDataURL="/images/loader/women-fashion-loader.gif"
-          loader={imageLoader}
+          blurDataURL={product.images[0].data}
         />
         {/* <span className="status">30%</span> */}
         {tagId >= 0 && (

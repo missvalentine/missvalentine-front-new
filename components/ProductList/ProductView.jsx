@@ -52,7 +52,9 @@ const ProductView = (props) => {
                 width="600px"
                 src={product.images[0].data}
                 className="img-fluid"
-                alt="Colorlib Template"
+                alt={product.name}
+                placeholder="blur"
+                blurDataURL={product.images[0].data}
               />
             </div>
             <span className={styles['status-tag']}>Trending</span>
@@ -177,7 +179,9 @@ const ProductView = (props) => {
           width="600px"
           src={product.images[0].data}
           className="img-fluid"
-          alt="Colorlib Template"
+          alt={product.images[0].data}
+          placeholder="blur"
+          blurDataURL={product.images[0].data}
         />
       </Modal>
     </section>

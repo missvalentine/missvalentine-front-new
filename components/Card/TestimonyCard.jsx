@@ -12,6 +12,8 @@ export default function TestimonyCard(props) {
           alt="missvalentine bra model"
           width="100px"
           height="100px"
+          placeholder="blur"
+          blurDataURL="/images/loader/women-fashion-loader.gif"
         />
         <span className="quote d-flex align-items-center justify-content-center">
           <i className="icon-quote-left"></i>

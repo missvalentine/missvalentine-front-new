@@ -7,7 +7,10 @@ import { addItemToCart } from '../redux/actions/cartActions'
 import { toast } from 'react-toastify'
 import styles from '../styles/components/ProductCard.module.scss'
 
-export default function ProductCard(props) {
+const imageLoader = ({ src, width, quality }) => {
+  return src
+}
+const ProductCard = (props) => {
   const {
     product,
     hideAddToCart,
@@ -57,7 +60,10 @@ export default function ProductCard(props) {
           width="500px"
           className="img-fluid"
           src={product.images[0].data}
-          alt="Colorlib Template"
+          alt={`${product.name} image`}
+          placeholder="blur"
+          blurDataURL="/images/loader/women-fashion-loader.gif"
+          loader={imageLoader}
         />
         {/* <span className="status">30%</span> */}
         {tagId >= 0 && (
@@ -119,3 +125,5 @@ export default function ProductCard(props) {
     </div>
   )
 }
+
+export default ProductCard

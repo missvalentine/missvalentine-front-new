@@ -20,7 +20,7 @@ const EQform = () => {
   const [storeAddress, setStoreAddress] = useState('')
   const [city, setCity] = useState('')
   const [state, setState] = useState('')
-  const [categorySlug, setCategorySlug] = useState('missvalentine-bra')
+  const [categorySlug, setCategorySlug] = useState('missvalentine-bra-set')
   const [selectedProducts, setSelectedProducts] = useState([])
 
   const handleCategoryChange = async (e) => {
@@ -197,6 +197,7 @@ const EQform = () => {
                 id=""
                 className="form-control"
                 onChange={handleCategoryChange}
+                // value={categorySlug}
               >
                 {allCategories
                   .filter((_category) => _category.products.length >= 1)

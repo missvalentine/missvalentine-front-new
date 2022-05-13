@@ -61,7 +61,7 @@ const TestimonySection = () => {
           <div className="col-md-8 ftco-animated fadeInLeft">
             <Slide bottom>
               <Carousel
-                swipeable={false}
+                swipeable
                 draggable={false}
                 showDots={true}
                 responsive={responsive}

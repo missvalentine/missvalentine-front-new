@@ -73,6 +73,12 @@ const Navbar = (props) => {
             </li>
             <li className="nav-item">
               {' '}
+              <Link href="/enquiry-form">
+                <a className="nav-link">E-Catalouge</a>
+              </Link>
+            </li>
+            <li className="nav-item">
+              {' '}
               <Link href="/about">
                 <a className="nav-link">About</a>
               </Link>

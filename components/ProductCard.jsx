@@ -1,7 +1,7 @@
 import React from 'react'
 import Image from 'next/image'
 import { useRouter } from 'next/router'
-import { isCartAvailable } from '../constant/projectSetting'
+import { isCartAvailable, isReviewsAvailable } from '../constant/projectSetting'
 import { useDispatch } from 'react-redux'
 import { addItemToCart } from '../redux/actions/cartActions'
 import { toast } from 'react-toastify'
@@ -22,7 +22,7 @@ const ProductCard = (props) => {
   const handleProductClick = () => {
     if (!isDisabled) router.push(`/product/${product.slug}`)
   }
-
+  console.log('mode', mode)
   const handleAddToCart = () => {
     if (callback) {
       callback(product._id)
@@ -60,6 +60,7 @@ const ProductCard = (props) => {
           src={product.images[0].data}
           alt={`${product.name} image`}
           loader={imageLoader}
+          quality={1}
           // placeholder="blur"
           // blurDataURL={product.images[0].data}
         />
@@ -86,7 +87,7 @@ const ProductCard = (props) => {
                 <p>{product.category.name}</p>
               )}
             </div>
-            {mode !== 'enquiry' && (
+            {isReviewsAvailable && (
               <div className="rating">
                 <p className="text-right">
                   <span className="icon-star"></span>
@@ -99,7 +100,7 @@ const ProductCard = (props) => {
             )}
           </div>
         </div>
-        {!hideAddToCart && isCartAvailable && (
+        {(mode === 'enquiry' || (!hideAddToCart && isCartAvailable)) && (
           <div className="pb-2 px-3">
             <hr />
             <div className="bottom-area d-flex btn btn-cyan">

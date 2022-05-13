@@ -78,7 +78,7 @@ export async function getStaticPaths() {
   const categoryResponse = await callApi({
     url: `/category/all`,
   })
-  const paths = categoryResponse?.data?.data.map((cate) => `/shop/${cate.name}`)
+  const paths = categoryResponse?.data?.data.map((cate) => `/shop/${cate.slug}`)
   paths.unshift(`/shop/all`)
   return {
     paths: paths,

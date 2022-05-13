@@ -10,7 +10,7 @@ export default function PolicySection() {
       heading="Services"
       subHeading="We want you to express yourself"
       bgColor="light"
-      addClassName="ftco-services"
+      addClassName="ftco-services pb-6"
     >
       <div className="row">
         <div className="col-md-4 text-center d-flex align-self-stretch ">

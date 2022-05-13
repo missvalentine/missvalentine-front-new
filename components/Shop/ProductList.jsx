@@ -20,7 +20,7 @@ const ProductList = (props) => {
           >
             <ProductCard
               callback={cardCallback}
-              mode="enquiry"
+              mode={mode}
               product={product}
               isDisabled={mode == 'enquiry'}
               isAdded={

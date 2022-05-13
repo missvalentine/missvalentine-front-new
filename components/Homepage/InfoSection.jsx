@@ -38,7 +38,7 @@ const InfoSection = () => {
             <div className="col-md-7 py-5 wrap-about pb-md-5">
               <div className="heading-section-bold mb-5 mt-md-5">
                 <div className="ml-md-0">
-                  <h2 className="mb-4">{projectName}</h2>
+                  <h2 className="mb-4">Miss Valentine</h2>
                 </div>
               </div>
               <div className="pb-md-5">

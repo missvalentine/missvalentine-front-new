@@ -17,6 +17,7 @@ const TestimonySection = dynamic(() =>
 const PolicySection = dynamic(() =>
   import('../components/Homepage/PolicySection'),
 )
+const LocateUs = dynamic(() => import('../components/Homepage/LocateUs'))
 
 import withBaseLayout from '../components/Layout/BaseLayout'
 import { projectName } from '../constant/projectSetting'
@@ -45,8 +46,9 @@ const Home = (props) => {
       <InfoSection />
       <ProductSection />
       <Banner />
-      <TestimonySection />
       <PolicySection />
+      <TestimonySection />
+      <LocateUs />
     </React.Fragment>
   )
 }

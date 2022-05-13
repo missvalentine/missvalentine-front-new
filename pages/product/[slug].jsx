@@ -16,17 +16,16 @@ const ProductBySlug = (props) => {
   const dispatch = useDispatch()
 
   useEffect(() => {
-    dispatch(addProductToRecent(product));
-// eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [product.slug]);
+    dispatch(addProductToRecent(product))
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [product.slug])
 
   const productListState = useSelector(
     (state) => state.productListState.allProducts,
-  );
+  )
   const recentProductListState = useSelector(
     (state) => state.productListState.recentlyViewed,
-  );
-
+  )
 
   return (
     <section className="">
@@ -35,30 +34,44 @@ const ProductBySlug = (props) => {
       </Head>
       <ProductView product={product} />
       <ProductDetail product={product} />
-     {productListState.length >= 3 && <ProductSection
-        productList={shuffleArray(productListState)}
-        containerClassName="ftco-section-extra"
-        heading="Products"
-        subHeading="You May Like"
-      />}
-      {productListState.length >= 3 &&<ProductSection
-        productList={recentProductListState}
-        containerClassName="ftco-section-extra bg-light"
-        heading="Products"
-        subHeading="Recently Viewed"
-      />}
+      {productListState.length >= 3 && (
+        <ProductSection
+          productList={shuffleArray(productListState)}
+          containerClassName="ftco-section-extra"
+          heading="Products"
+          subHeading="You May Like"
+        />
+      )}
+      {productListState.length >= 3 && (
+        <ProductSection
+          productList={recentProductListState}
+          containerClassName="ftco-section-extra bg-light"
+          heading="Products"
+          subHeading="Recently Viewed"
+        />
+      )}
     </section>
   )
 }
+export async function getStaticPaths() {
+  const productResponse = await callApi({
+    url: `/product/all`,
+  })
+  const paths = productResponse?.data?.data.map(
+    (product) => `/product/${product.slug}`,
+  )
+  return {
+    paths: paths,
+    fallback: true,
+  }
+}
 
-export async function getServerSideProps(context) {
+export async function getStaticProps(context) {
   const slug = context.params.slug // Get ID from slug `/book/1`
 
   const response = await callApi({
     url: `/product/slug?slug=${slug}`,
   })
-
-  console.log('slug product', slug)
 
   return {
     props: { product: response?.data?.success ? response?.data?.data : null },

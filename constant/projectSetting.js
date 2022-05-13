@@ -7,6 +7,7 @@ export const baseUrl = true ? SERVER_URL_2 : LOCAL_SERVER_URL
 
 // Project Config
 export const isCartAvailable = false
+export const isReviewsAvailable = false
 export const keywordString =
   'Buy ladies bras online from a range of sports, push up, padded & more at MissValentine. Find women bras in different colors, fabrics, patterns at best price.'
 export const keywordArray = keywordString?.split(' ') || ''

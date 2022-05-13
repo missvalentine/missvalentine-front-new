@@ -2,7 +2,10 @@ import Image from 'next/image'
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { toast } from 'react-toastify'
-import { isCartAvailable } from '../../constant/projectSetting'
+import {
+  isCartAvailable,
+  comapanyAlternateNo,
+} from '../../constant/projectSetting'
 import { addItemToCart } from '../../redux/actions/cartActions'
 import styles from '../../styles/components/ProductView.module.scss'
 import { getColorCode, imageLoader } from '../../utils/helperFunction'
@@ -150,7 +153,7 @@ const ProductView = (props) => {
               <a
                 className="col-5 btn btn-dark py-3 px-5 mr-3"
                 target="_black"
-                href={`https://wa.me/+919999217125/?text=Hello!%20I%20want%20to%20enquire%20about%20${quantity}%20pieces%20 ${
+                href={`https://wa.me/+91${comapanyAlternateNo}/?text=Hello!%20I%20want%20to%20enquire%20about%20${quantity}%20pieces%20 ${
                   product.name && product.name !== ''
                     ? product.name
                     : product.category.name

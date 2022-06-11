@@ -3,11 +3,13 @@ const LOCAL_SERVER_URL = 'http://localhost:5000/api'
 const SERVER_URL = 'https://missval.herokuapp.com/api'
 const SERVER_URL_2 = 'https://missval-server.herokuapp.com/api'
 
-export const baseUrl = true ? SERVER_URL_2 : LOCAL_SERVER_URL
+export const baseUrl = false ? SERVER_URL_2 : LOCAL_SERVER_URL
 
 // Project Config
 export const isCartAvailable = false
 export const isReviewsAvailable = false
+
+//SEO
 export const keywordString =
   'Buy ladies bras online from a range of sports, push up, padded & more at MissValentine. Find women bras in different colors, fabrics, patterns at best price.'
 export const keywordArray = keywordString?.split(' ') || ''

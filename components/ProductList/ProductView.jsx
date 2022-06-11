@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import React, { useState } from 'react'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { toast } from 'react-toastify'
 import {
   isCartAvailable,
@@ -28,6 +28,7 @@ const modalStyles = {
 
 const ProductView = (props) => {
   const { product } = props
+  const userId = useSelector((state) => state.authState.user._id)
   const dispatch = useDispatch()
   const [quantity, setQuantity] = useState(1)
   const [color, setColor] = useState('')
@@ -35,7 +36,7 @@ const ProductView = (props) => {
   const [isImageZoom, setIsImageZoom] = useState(false)
 
   const handleAddToCart = () => {
-    dispatch(addItemToCart(product))
+    dispatch(addItemToCart(product, quantity, userId))
     toast.success('Item Added to Cart Successfully!')
   }
   const handleDecreaseQuantity = () => {
@@ -149,9 +150,9 @@ const ProductView = (props) => {
                 </span>
               </div>
             </div>
-            <div className="row mt-3">
+            <div className="row mt-3 justify-content-sm-left justify-content-center">
               <a
-                className="col-5 btn btn-dark py-3 px-5 mr-3"
+                className="col-sm-5 col-11 btn btn-dark py-3 px-5 mr-sm-3"
                 target="_black"
                 href={`https://wa.me/+91${comapanyAlternateNo}/?text=Hello!%20I%20want%20to%20enquire%20about%20${quantity}%20pieces%20 ${
                   product.name && product.name !== ''

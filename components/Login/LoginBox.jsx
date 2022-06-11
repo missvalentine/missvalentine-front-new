@@ -1,3 +1,4 @@
+import { useRouter } from 'next/router'
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { toast } from 'react-toastify'
@@ -11,7 +12,8 @@ import { EmailReg } from '../../utils/regEx'
 import Loader from '../CustomComponents/Loader'
 
 const LoginBox = (props) => {
-  const { closeModal } = props
+  const { closeModal = () => {} } = props
+  const router = useRouter()
   const [isLoginBox, setIsLoginBox] = useState(true)
   const dispatch = useDispatch()
   const [name, setName] = useState(null)
@@ -32,11 +34,14 @@ const LoginBox = (props) => {
         url: '/auth/register',
         data: dataToSend,
       })
-      if (response) {
+      if (response && response.status === 200) {
         console.log(response)
         toast.success('User Register Succesfully👌')
         dispatch(setUserAction(response.data))
         closeModal()
+        router.push('/login')
+      } else {
+        toast.error('Error in user input! 🤯')
       }
     } catch (error) {
       toast.error("Could'nt register right now! 🤯")
@@ -56,7 +61,7 @@ const LoginBox = (props) => {
         url: '/auth/login',
         data: dataToSend,
       })
-      if (response) {
+      if (response && response.status == 200) {
         toast.success('Welcome👌')
         const userAuthData = {
           user: response.data.user,
@@ -64,6 +69,9 @@ const LoginBox = (props) => {
         }
         dispatch(setUserAuthAction(userAuthData))
         closeModal()
+        router.push('/shop/all')
+      } else {
+        toast.error('Invalid Email or password!🤯')
       }
     } catch (error) {
       console.log(error)

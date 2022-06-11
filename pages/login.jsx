@@ -1,9 +1,8 @@
 import React from 'react'
-import LoginForm from '../components/Login/LoginForm';
+import withBaseLayout from '../components/Layout/BaseLayout'
+import LoginBox from '../components/Login/LoginBox'
 
-const Login=()=>{
-    return (
-       <LoginForm />
-    );
+const Login = () => {
+  return <LoginBox />
 }
-export default Login;
+export default withBaseLayout(Login)

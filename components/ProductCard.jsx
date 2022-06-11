@@ -2,7 +2,7 @@ import React from 'react'
 import Image from 'next/image'
 import { useRouter } from 'next/router'
 import { isCartAvailable, isReviewsAvailable } from '../constant/projectSetting'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { addItemToCart } from '../redux/actions/cartActions'
 import { toast } from 'react-toastify'
 import styles from '../styles/components/ProductCard.module.scss'
@@ -22,12 +22,13 @@ const ProductCard = (props) => {
   const handleProductClick = () => {
     if (!isDisabled) router.push(`/product/${product.slug}`)
   }
+  const userId = useSelector((state) => state.authState.user._id)
   console.log('mode', mode)
   const handleAddToCart = () => {
     if (callback) {
       callback(product._id)
     } else {
-      dispatch(addItemToCart(product))
+      dispatch(addItemToCart(product, userId))
       toast.success('Item Added to Cart Successfully!')
     }
   }

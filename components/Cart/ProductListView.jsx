@@ -24,11 +24,11 @@ const ProductListView = (props) => {
             <thead className="thead-primary">
               <tr className="text-center">
                 <th>&nbsp;</th>
-                <th>&nbsp;</th>
                 <th>Product</th>
                 <th>Price</th>
                 <th>Quantity</th>
                 <th>Total</th>
+                <th>&nbsp;</th>
               </tr>
             </thead>
             <tbody>

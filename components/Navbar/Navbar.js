@@ -1,5 +1,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
+import { useRouter } from 'next/router'
 import React, { useState } from 'react'
 import { useSelector } from 'react-redux'
 import { isCartAvailable, projectName } from '../../constant/projectSetting'
@@ -16,13 +17,14 @@ const modalStyles = {
     width: '480px',
     height: 'auto',
     marginRight: '-50%',
-    zIndex: 22,
+    zIndex: 2200000,
     padding: 0,
     // transform: 'translate(-50%, -50%)',
   },
 }
 const Navbar = (props) => {
   const { fixedNavbar } = props
+  const router = useRouter()
   const [isNavItemOpen, setIsNavItemOpen] = useState(false)
   const [isLoginModalOpen, setIsLoginModalOpen] = useState(false)
   const cartLength = useSelector((state) => state.cartState.cartLength)
@@ -31,6 +33,16 @@ const Navbar = (props) => {
   const openLoginModal = () => setIsLoginModalOpen(true)
   const closeLoginModal = () => setIsLoginModalOpen(false)
   console.log('isLoggedIn', isLoggedIn)
+
+  const handleLoginRedirect = () => {
+    if (!isLoggedIn) {
+      if (true) router.push('/login')
+      else openLoginModal()
+    } else {
+      //do logout logic
+    }
+  }
+
   return (
     <nav
       className={`navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light ${
@@ -100,10 +112,7 @@ const Navbar = (props) => {
               </li>
             )}
             {isCartAvailable && (
-              <li
-                className="nav-item"
-                onClick={isLoggedIn ? () => {} : openLoginModal}
-              >
+              <li className="nav-item" onClick={handleLoginRedirect}>
                 <div className="nav-link pointer">
                   {isLoggedIn ? (
                     <Image

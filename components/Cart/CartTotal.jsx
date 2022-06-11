@@ -1,7 +1,10 @@
 import Link from 'next/link'
 import React from 'react'
+import { useSelector } from 'react-redux'
 
 const CartTotal = () => {
+  const cartState = useSelector((state) => state.cartState)
+
   return (
     <div className="row justify-content-end">
       <div className="col col-lg-5 col-md-6 mt-5 cart-wrap ftco-animated fadeInUp">

@@ -8,10 +8,23 @@ const Banner = () => {
       className="ftco-section ftco-section-more img"
       style={{
         height: '100vh',
-        backgroundImage: `url(${'https://wallpapercave.com/wp/wp5734563.jpg'})`,
-        // backgroundImage: `/images/models/model4.jpeg`,
       }}
     >
+      <span
+        style={{
+          height: '100vh',
+          width: 'auto',
+        }}
+      >
+        <Image
+          // layout="responsive"
+          src={`/images/bg/bg_01.png`}
+          alt="missvalentine bra model"
+          layout="fill"
+          objectFit="cover"
+        />
+      </span>
+
       {/* <Image
               layout="fill"
               // width="100vw"
@@ -23,7 +36,11 @@ const Banner = () => {
         <div className="row justify-content-center mb-3 pb-3">
           <div className="col-md-12 heading-section">
             <Slide bottom>
-              <h2>Summer Sale</h2>
+              <h2
+              // style={{ textShadow: '-1px 2px 10px #eee' }}
+              >
+                Summer Sale
+              </h2>
             </Slide>
           </div>
         </div>

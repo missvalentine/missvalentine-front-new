@@ -1,31 +1,49 @@
-import React from 'react'
-import { useSelector } from 'react-redux'
+import Head from 'next/head'
+import React, { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import CartNavbar from '../components/Cart/CartNavbar'
+import CartProductListView from '../components/Cart/CartProductListView'
 import CartTotal from '../components/Cart/CartTotal'
-import ProductListView from '../components/Cart/ProductListView'
 import EmptyCard from '../components/CustomComponents/EmptyCard'
 import TopBanner from '../components/CustomComponents/TopBanner'
 import withBaseLayout from '../components/Layout/BaseLayout'
+import { getAllCartItem } from '../redux/actions/cartActions'
 
 const Cart = (props) => {
+  const dispatch = useDispatch()
   const cartState = useSelector((state) => state.cartState)
+  useEffect(() => {
+    dispatch(getAllCartItem())
+  }, [])
+
   return (
     <div>
-      <TopBanner title="My Cart" subtitle="Cart" />
-      <section className="ftco-section ftco-cart">
-        <div className="container">
-          {cartState.cartLength ? (
-            <React.Fragment>
-              <ProductListView products={cartState.cart} />
-              <CartTotal />
-            </React.Fragment>
-          ) : (
-            <EmptyCard 
-              title={"Your Cart is Empty"}
-              subtitle={"Looks like you haven't added anything to your cart"}
-            />
-          )}
-        </div>
-      </section>
+      <Head>
+        <title>{`SHOPPING BAG`}</title>
+      </Head>
+      {cartState.cartLength && <CartNavbar status={1} />}
+      {/* <TopBanner title="My Cart" subtitle="Cart" /> */}
+      {cartState.cartLength ? (
+        <section className="ftco-section-2 ftco-cart">
+          <div className="container">
+            <section className="d-flex justify-content-between">
+              <div className="col-md-7">
+                <CartProductListView products={cartState.products} />
+              </div>
+              <div className="col-md-4">
+                <CartTotal />
+              </div>
+            </section>
+          </div>
+        </section>
+      ) : (
+        <section className="ftco-section ftco-cart">
+          <EmptyCard
+            title={'Your Cart is Empty'}
+            subtitle={"Looks like you haven't added anything to your cart"}
+          />
+        </section>
+      )}
     </div>
   )
 }

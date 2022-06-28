@@ -1,38 +1,30 @@
-
-.cards {
-      display: flex;
-    @include bpm-sm {
-      display: block;
-    }
-    
-  }
 .card {
-    width: 21%;
-    margin: auto;
-    text-align: center;
-    box-shadow: 0px 3px 30px rgba(0, 0, 0, 0.2);
-    padding: 1rem;
+	width: 21%;
+	margin: auto;
+	text-align: center;
+	box-shadow: 0px 3px 30px rgba(0, 0, 0, 0.2);
+	padding: 1rem;
 
-    &:hover {
-      transform: scale(1.05);
-    }
-    @include bpm-sm {
-      margin-bottom: 2rem;
-      width: 95%;
-      &:hover {
-        transform: none;
-      }
-    }
-    &-img {
-      width: 95%;
-      height: 80%;
-    }
-    &-name {
-      font-weight: 600;
-      padding: 0.5rem 0 0.5rem;
-      font-size: 1rem;
-      @include bpm-sm {
-        font-size: 1.8rem;
-      }
-    }
-  }
+	&:hover {
+		transform: scale(1.05);
+	}
+	@include mobile-only {
+		margin-bottom: 2rem;
+		width: 95%;
+		&:hover {
+			transform: none;
+		}
+	}
+	&-img {
+		width: 95%;
+		height: 80%;
+	}
+	&-name {
+		font-weight: 600;
+		padding: 0.5rem 0 0.5rem;
+		font-size: 1rem;
+		@include bpm-sm {
+			font-size: 1.8rem;
+		}
+	}
+}

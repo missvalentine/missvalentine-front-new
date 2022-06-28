@@ -4,36 +4,41 @@ import { useSelector } from 'react-redux'
 
 const CartTotal = () => {
   const cartState = useSelector((state) => state.cartState)
-
+  const subTotal = cartState.products
+    .map((cartItem) => cartItem.product.quantity)
+    .reduce((partialSum, a) => partialSum + a, 0)
+  console.log('subtotal', subTotal)
   return (
-    <div className="row justify-content-end">
-      <div className="col col-lg-5 col-md-6 mt-5 cart-wrap ftco-animated fadeInUp">
-        <div className="cart-total mb-3">
-          <h3>Cart Totals</h3>
-          <p className="d-flex">
-            <span>Subtotal</span>
-            <span>$20.60</span>
-          </p>
-          <p className="d-flex">
-            <span>Delivery</span>
-            <span>$0.00</span>
-          </p>
-          <p className="d-flex">
-            <span>Discount</span>
-            <span>$3.00</span>
-          </p>
-          <hr />
-          <p className="d-flex total-price">
-            <span>Total</span>
-            <span>$17.60</span>
-          </p>
-        </div>
-        <p className="text-center">
-          <Link href="/checkout">
-            <a className="btn btn-primary py-3 px-4">Proceed to Checkout</a>
-          </Link>
+    <div className="w-100  cart-wrap ftco-animated fadeInUp">
+      <div className="cart-total mb-3">
+        <h3>Cart Totals</h3>
+        <p className="d-flex mb-1">
+          <span>Subtotal</span>
+          <span className="text-right">&#8377;{subTotal}</span>
+        </p>
+        <p className="d-flex  mb-1">
+          <span>Delivery</span>
+          <span className="text-right">&#8377;0.00</span>
+        </p>
+        <p className="d-flex  mb-1">
+          <span>Discount</span>
+          <span className="text-right">&#8377;3.00</span>
+        </p>
+        <hr />
+        <p className="d-flex total-price text-dark">
+          <span>
+            <strong>Total</strong>
+          </span>
+          <span className="text-right">
+            <strong>&#8377;17.60</strong>
+          </span>
         </p>
       </div>
+      <p className="text-center">
+        <Link href="/checkout">
+          <a className="btn btn-primary-2 w-100 py-3 px-4">Continue</a>
+        </Link>
+      </p>
     </div>
   )
 }

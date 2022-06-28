@@ -24,8 +24,37 @@ export default function (state = initialState, action) {
       return {
         ...state,
         user: {},
+        authToken: null,
         isLoggedIn: false,
       }
+    case 'ADD_ADDRESS': {
+      let userAddresses = state.user.addresses
+      userAddresses.push(payload)
+      return {
+        ...state,
+        user: { ...state.user, addresses: userAddresses },
+      }
+    }
+    case 'UPDATE_ADDRESS': {
+      const userAddresses = state.user.addresses.map((address) =>
+        address._id === payload._id ? payload : address,
+      )
+      return {
+        ...state,
+        user: { ...state.user, addresses: userAddresses },
+      }
+    }
+    case 'DELETE_ADDRESS': {
+      const userAddresses = state.user.addresses.filter((address) =>
+        typeof address === 'string'
+          ? address !== payload
+          : address._id !== payload,
+      )
+      return {
+        ...state,
+        user: { ...state.user, addresses: userAddresses },
+      }
+    }
 
     default:
       return state

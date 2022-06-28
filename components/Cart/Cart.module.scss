@@ -1,0 +1,93 @@
+.card {
+	width: 21%;
+	margin: auto;
+	text-align: center;
+	box-shadow: 0px 3px 30px rgba(0, 0, 0, 0.2);
+	padding: 1rem;
+
+	&:hover {
+		transform: scale(1.05);
+	}
+	@include mobile-only {
+		margin-bottom: 2rem;
+		width: 95%;
+		&:hover {
+			transform: none;
+		}
+	}
+	&-img {
+		width: 95%;
+		height: 80%;
+	}
+	&-name {
+		font-weight: 600;
+		padding: 0.5rem 0 0.5rem;
+		font-size: 1rem;
+		@include bpm-sm {
+			font-size: 1.8rem;
+		}
+	}
+}
+
+.borderCream {
+	border: 1px solid #fff1ec;
+}
+
+.itemName {
+	font-size: 14px;
+	text-transform: uppercase;
+	letter-spacing: 2px;
+	color: #343a40;
+}
+.closeBtn {
+	position: absolute;
+	right: 15px;
+}
+.select {
+	background-color: #f5f5f6;
+	padding: 2px 5px;
+	color: #000000 !important;
+	border: 1px solid rgba(0, 0, 0, 0.05) !important;
+	font-size: 12px;
+	height: 100%;
+
+	font-weight: 600;
+	width: fit-content;
+	label {
+		padding-left: 4px;
+		margin: 0;
+	}
+	select {
+		background-color: #f5f5f6;
+		border: none;
+		font-weight: 600;
+	}
+}
+
+.cartNavbarWrapper {
+	padding: 1.5em 0;
+	border-top: 1px solid #f5f5f6;
+	border-bottom: 1px solid #f5f5f6;
+}
+.cartNavbarStatus {
+	text-transform: uppercase !important;
+	font-size: 13px;
+	letter-spacing: 3px;
+	color: #6c757d;
+	font-weight: 600;
+	cursor: pointer;
+	background-color: white;
+	border: none;
+	outline: none;
+	&:hover {
+		color: inherit;
+		outline: none;
+		border: none;
+	}
+}
+.cartNavbarStatusActive {
+	text-transform: uppercase !important;
+	font-size: 13px;
+	color: #14cda8;
+	letter-spacing: 3px;
+}

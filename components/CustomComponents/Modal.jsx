@@ -1,8 +1,10 @@
 import React from 'react'
 import ReactModal from 'react-modal'
+import { useDialog } from 'realayers'
 
 const Modal = (props) => {
   const { isOpen, closeModal, modalStyles, children } = props
+  const { toggleOpen, Dialog } = useDialog()
 
   const childrenWithProps = React.Children.map(children, (child) => {
     if (React.isValidElement(child)) {

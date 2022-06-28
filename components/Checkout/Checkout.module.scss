@@ -1,0 +1,80 @@
+.card {
+	width: 100%;
+	margin: auto;
+	text-align: center;
+	// box-shadow: 0px 3px 30px rgba(0, 0, 0, 0.2);
+	padding: 1rem;
+	position: relative;
+	box-shadow: 0 0 4px rgb(40 44 63 / 20%);
+
+	&:hover {
+		// transform: scale(1.05);
+	}
+	@include mobile-only {
+		margin-bottom: 2rem;
+		width: 95%;
+		&:hover {
+			transform: none;
+		}
+	}
+	&-img {
+		width: 95%;
+		height: 80%;
+	}
+	&-name {
+		font-weight: 600;
+		padding: 0.5rem 0 0.5rem;
+		font-size: 1rem;
+		@include bpm-sm {
+			font-size: 1.8rem;
+		}
+	}
+}
+
+.borderCream {
+	border: 1px solid #fff1ec;
+}
+
+.itemName {
+	font-size: 14px;
+	text-transform: uppercase;
+	letter-spacing: 2px;
+	color: #343a40;
+}
+.actionBtn {
+	// padding: 6px 6px 4px;
+	background: white;
+	outline: none;
+	border: 1px solid #343a40;
+	text-transform: uppercase;
+	letter-spacing: 2px;
+	padding: 2px 8px;
+	border-radius: 6px;
+	font-size: 14px;
+	cursor: pointer;
+	span {
+		font-size: 16px;
+	}
+	// font-size: 24px;
+}
+.actionBtnWrapper {
+	// position: absolute;
+	// top: 12px;
+	// right: 30px;
+}
+
+.addressText {
+	letter-spacing: 2px;
+	font-size: 12px;
+	color: #343a40;
+	margin-top: 6px;
+}
+
+// ----------
+.newAddressCard {
+	border: 1px dashed #ff566a;
+	color: #ff566a;
+	font-size: 18px;
+	padding: 10px 20px;
+	cursor: pointer;
+}

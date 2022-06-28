@@ -29,7 +29,7 @@ const BoardMembers = () => {
             than 14 years of experience in manufacturing & marketing, and a
             passion for fundamentally improving & producing quality products
           </div>
-          <div className={style.cards}>
+          <div className="d-md-flex">
             {directors.map((d, i) => (
               <div key={i} className={style.card}>
                 {/* <img
@@ -37,7 +37,7 @@ const BoardMembers = () => {
                   className="c-directors__cards-card-img"
                   src={d.img}
                 /> */}
-                <div className={style["card-name"]}>{d.name}</div>
+                <div className={style['card-name']}>{d.name}</div>
                 <div className={style.cardDesc}>{d.desc}</div>
               </div>
             ))}

@@ -3,10 +3,10 @@ const LOCAL_SERVER_URL = 'http://localhost:5000/api'
 const SERVER_URL_OLD = 'https://missval.herokuapp.com/api'
 const SERVER_URL = 'https://missval-server.herokuapp.com/api'
 
-export const baseUrl = true ? SERVER_URL : LOCAL_SERVER_URL
+export const baseUrl = false ? SERVER_URL : LOCAL_SERVER_URL
 
 // Project Config
-export const isCartAvailable = false
+export const isCartAvailable = true
 export const isReviewsAvailable = false
 
 //SEO

@@ -1,0 +1,14 @@
+.highlight-card {
+	border-radius: 3px;
+	animation: highlight 5000ms ease-out;
+}
+
+@keyframes highlight {
+	0% {
+		box-shadow: 0 0 4px 1px #ff677a;
+	}
+	100% {
+		// background-color: white;
+		box-shadow: 0 0 4px rgb(40 44 63 / 20%);
+	}
+}

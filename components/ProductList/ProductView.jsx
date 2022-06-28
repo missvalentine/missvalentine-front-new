@@ -28,7 +28,6 @@ const modalStyles = {
 
 const ProductView = (props) => {
   const { product } = props
-  const userId = useSelector((state) => state.authState.user._id)
   const dispatch = useDispatch()
   const [quantity, setQuantity] = useState(1)
   const [color, setColor] = useState('')
@@ -36,7 +35,7 @@ const ProductView = (props) => {
   const [isImageZoom, setIsImageZoom] = useState(false)
 
   const handleAddToCart = () => {
-    dispatch(addItemToCart(product, quantity, userId))
+    dispatch(addItemToCart(product, quantity))
     toast.success('Item Added to Cart Successfully!')
   }
   const handleDecreaseQuantity = () => {
@@ -54,7 +53,7 @@ const ProductView = (props) => {
               <Image
                 height="800px"
                 width="600px"
-                src={product.images[0].data}
+                src={product?.images[0]?.data}
                 className="img-fluid"
                 alt={product.name}
                 loader={imageLoader}
@@ -182,9 +181,9 @@ const ProductView = (props) => {
         <Image
           height="800px"
           width="600px"
-          src={product.images[0].data}
+          src={product?.images[0]?.data}
           className="img-fluid"
-          alt={product.images[0].data}
+          alt={product?.images[0]?.data}
           loader={imageLoader}
           // placeholder="blur"
           // blurDataURL={product.images[0].data}

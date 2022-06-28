@@ -7,6 +7,7 @@
 @import url('/style/main.css');
 
 :root {
+	--color-dialog: white;
 	--blue: #007bff;
 	--indigo: #6610f2;
 	--purple: #6f42c1;
@@ -97,6 +98,27 @@ body {
 	color: #212529;
 	text-align: left;
 	background-color: #fff;
+
+	--color-popover: white;
+	--color-on-popover: white;
+
+	--color-tooltip: rgb(0, 0, 0, 0.8);
+	--color-on-tooltip: white;
+
+	--color-dialog: white;
+	--color-on-dialog: rgb(0, 0, 0, 0.8);
+
+	--color-drawer: #2c2c35;
+	--color-on-drawer: #fff;
+
+	--color-notification: rgb(9, 9, 10, 0.9);
+	--color-on-notification: #fff;
+	--color-notification-border: transparent;
+	--color-notification-error: red;
+	--color-notification-warning: yellow;
+	--color-notification-success: green;
+
+	--color-layer-transparent: rgba(5, 6, 12, 0.7);
 }
 
 [tabindex='-1']:focus {
@@ -695,8 +717,8 @@ pre code {
 	display: flex;
 	-ms-flex-wrap: wrap;
 	flex-wrap: wrap;
-	margin-right: -15px;
-	margin-left: -15px;
+	// margin-right: -15px;
+	// margin-left: -15px;
 }
 
 .no-gutters {
@@ -6717,6 +6739,9 @@ button.bg-dark:focus {
 	display: -ms-flexbox !important;
 	display: flex !important;
 }
+.flex-direction-row {
+	flex-direction: row;
+}
 
 .d-inline-flex {
 	display: -webkit-inline-box !important;
@@ -10509,8 +10534,8 @@ h5,
 	letter-spacing: 2px;
 }
 
-.ftco-cart button i {
-	color: $color-primary;
+.ftco-cart .ftco-section {
+	padding: 0em 0em 9em;
 }
 
 .ftco-cart .quantity-left-minus {
@@ -10521,16 +10546,6 @@ h5,
 .ftco-cart .quantity-right-plus {
 	background: transparent;
 	padding: 16px 20px;
-}
-
-.ftco-cart button,
-.ftco-cart .form-control {
-	height: 54px !important;
-	text-align: center;
-	border: 1px solid rgba(0, 0, 0, 0.05) !important;
-	color: #000000 !important;
-	padding: 0;
-	font-size: 14px;
 }
 
 .ftco-cart .form-group {
@@ -10854,14 +10869,17 @@ textarea.form-control {
 .ftco-section {
 	padding: 9em 0;
 	position: relative;
+	&-0 {
+		padding: 0em 0;
+	}
 	&-2 {
-		padding: 4em 0;
+		padding: 2em 0;
 	}
 	&-4 {
 		padding: 4em 0;
 	}
 	&-6 {
-		padding: 4em 0;
+		padding: 6em 0;
 	}
 }
 
@@ -11094,16 +11112,14 @@ textarea.form-control {
 	-ms-transition: all 0.3s ease;
 	transition: all 0.3s ease;
 }
-.ftco-services .services .icon  {
-	span{
+.ftco-services .services .icon {
+	span {
 		font-size: 70px;
 		color: #000000;
-		&.medium{
-		font-size: 40px;
-
+		&.medium {
+			font-size: 40px;
 		}
 	}
-
 }
 .ftco-services .services .media-body {
 	width: 100%;
@@ -11116,7 +11132,7 @@ textarea.form-control {
 	letter-spacing: 3px;
 }
 
-.testinomy-container{
+.testinomy-container {
 	margin-top: -75px;
 }
 .testimony-wrap {
@@ -11949,4 +11965,27 @@ textarea.form-control {
 	100% {
 		transform: rotate(360deg);
 	}
+}
+
+.dialog-header {
+	background-color: #ff527a;
+	height: 40px;
+	color: white;
+	padding-right: 10px !important;
+	font-size: 14px;
+}
+
+.c-tag {
+	border: 1px solid $tag-color;
+	background: #{$tag-color}40;
+	color: $tag-color;
+	width: fit-content;
+	padding: 2px 4px;
+	border-radius: 6px;
+	font-size: 14px;
+	text-transform: uppercase;
+	letter-spacing: 2px;
+}
+.gap-10 {
+	gap: 10px;
 }

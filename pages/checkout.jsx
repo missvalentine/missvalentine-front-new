@@ -3,8 +3,8 @@ import React, { useEffect } from 'react'
 import { useDispatch } from 'react-redux'
 import CartNavbar from '../components/Cart/CartNavbar'
 import CartTotal from '../components/Cart/CartTotal'
-import CheckoutDetails from '../components/Checkout/CheckoutDetails'
 import withBaseLayout from '../components/Layout/BaseLayout'
+import AddressesView from '../components/UserDashboard/AddressesView'
 import { projectName } from '../constant/projectSetting'
 import { getUserAction } from '../redux/actions/authActions'
 
@@ -24,8 +24,10 @@ const Checkout = () => {
       <section className="ftco-section-2 ftco-cart pb-6">
         <div className="container">
           <section className="d-flex justify-content-between">
-            <div className="col-md-7">
-              <CheckoutDetails />
+            <div className="col-md-7 pl-5">
+              <h5>Select Delivery Address</h5>
+              <br />
+              <AddressesView isSelectable />
             </div>
             <div className="col-md-4">
               <CartTotal />

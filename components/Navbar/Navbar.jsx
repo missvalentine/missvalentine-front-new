@@ -12,7 +12,7 @@ import { clearUserAction } from '../../redux/actions/authActions'
 import { useDialog } from 'realayers'
 
 const Navbar = (props) => {
-  const { fixedNavbar } = props
+  const { fixedNavbar = true } = props
   const router = useRouter()
   const dispatch = useDispatch()
 
@@ -117,17 +117,17 @@ const Navbar = (props) => {
                       content={
                         <ul className="list-group list-group-flush text-left">
                           <li className="list-group-item pr-5">
-                            <Link href="/enquiry-form">
+                            <Link href="/dashboard">
                               <a className="text-secondary">Dashboard</a>
                             </Link>
                           </li>
                           <li className="list-group-item pr-5">
-                            <Link href="/enquiry-form">
+                            <Link href="/dashboard">
                               <a className="text-secondary">Orders</a>
                             </Link>
                           </li>
                           <li className="list-group-item pr-5">
-                            <Link href="/enquiry-form">
+                            <Link href="/dashboard">
                               <a className="text-secondary">Wishlist</a>
                             </Link>
                           </li>

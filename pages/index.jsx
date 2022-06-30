@@ -74,7 +74,7 @@ export async function getStaticProps() {
 
 const HOCprops = {
   displayName: 'Home',
-  fixedNavbar: false,
+  fixedNavbar: true,
 }
 
 export default withBaseLayout(Home, HOCprops)

@@ -1,0 +1,43 @@
+// @import 'variables';
+
+.profileWrapper {
+	border: 1px solid $color-black-1;
+	padding: 40px 15%;
+}
+.infoRow {
+	color: $color-dark;
+	justify-content: space-between;
+	display: flex;
+	padding-bottom: 6px;
+}
+
+// Option menu sidebar
+.optionMenuLists {
+	color: $color-secondary;
+	letter-spacing: 2px;
+
+	h6 {
+		font-size: 13px;
+		margin-bottom: 12px;
+		color: $color-black-3;
+		text-transform: uppercase;
+	}
+}
+.optionMenuListItem {
+	text-transform: capitalize;
+	font-size: 14px;
+	cursor: pointer;
+	color: $color-secondary;
+}
+.optionMenuListItemActive {
+	color: $color-negative;
+}
+
+//Address
+.newAddressCard {
+	border: 1px dashed #ff566a;
+	color: #ff566a;
+	font-size: 18px;
+	padding: 10px 20px;
+	cursor: pointer;
+}

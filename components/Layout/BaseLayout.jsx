@@ -11,13 +11,15 @@ const Navbar = dynamic(() => import('../Navbar/Navbar'))
 const Footer = dynamic(() => import('../Footer/Footer'))
 const NewsletterSection = dynamic(() => import('../Homepage/NewsletterSection'))
 
-function withBaseLayout(WrappedComponent, props) {
-  const fixedNavbar = props?.fixedNavbar || true
+function withBaseLayout(WrappedComponent, props = {}) {
+  const { screenName, showNewsletterSection = true, fixedNavbar = true } = props
   return function BaseFunction(pageProps) {
     return (
       <React.Fragment>
         <Head>
-          <title>{`${WrappedComponent.name.toUpperCase()} | ${projectName}`}</title>
+          <title>{`${
+            screenName || WrappedComponent.name.toUpperCase()
+          } | ${projectName}`}</title>
           <meta property="og:title" content={projectName} key="title" />
           <meta
             property="og:description"
@@ -33,7 +35,7 @@ function withBaseLayout(WrappedComponent, props) {
 
         <Navbar fixedNavbar={fixedNavbar} />
         <WrappedComponent {...pageProps} />
-        <NewsletterSection />
+        {showNewsletterSection && <NewsletterSection />}
         <Footer />
       </React.Fragment>
     )

@@ -21,7 +21,7 @@ const Cart = (props) => {
       <Head>
         <title>{`SHOPPING BAG`}</title>
       </Head>
-      {cartState.cartLength ? <CartNavbar status={1} /> : <hr />}
+      {cartState.cartLength && <CartNavbar status={1} />}
       {/* <TopBanner title="My Cart" subtitle="Cart" /> */}
       {cartState.cartLength ? (
         <section className="ftco-section-2 ftco-cart mb-6">

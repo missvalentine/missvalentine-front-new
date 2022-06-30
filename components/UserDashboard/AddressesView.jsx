@@ -1,12 +1,9 @@
 import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { DialogHeader, useDialog } from 'realayers'
 import dynamic from 'next/dynamic'
 
-const AddressCard = dynamic(() => import('./AddressCard'))
-const AddressForm = dynamic(() => import('./AddressForm'))
-import styles from './Checkout.module.scss'
 import { toast } from 'react-toastify'
+import { DialogHeader, useDialog } from 'realayers'
 import {
   addAddressAction,
   deleteAddressAction,
@@ -14,7 +11,12 @@ import {
 } from '../../redux/actions/authActions'
 import { callApi } from '../../utils/callApi'
 
-const CheckoutDetails = () => {
+const AddressCard = dynamic(() => import('../Checkout/AddressCard'))
+const AddressForm = dynamic(() => import('../Checkout/AddressForm'))
+
+import styles from './UserDashboard.module.scss'
+
+const AddressesView = (props) => {
   const dispatch = useDispatch()
   const userState = useSelector((state) => state.authState.user)
   const userAddresses = userState.addresses
@@ -132,9 +134,7 @@ const CheckoutDetails = () => {
   }
 
   return (
-    <section className="pl-5">
-      <h5>Select Delivery Address</h5>
-      <br />
+    <section>
       {userAddresses?.length > 0 &&
         userAddresses.map((address) => (
           <AddressCard
@@ -148,6 +148,7 @@ const CheckoutDetails = () => {
             state={address.state}
             country={address.country}
             pincode={address.pincode}
+            isSelectable={props.isSelectable}
             handleEditAddress={handleEditAddress}
             handleRemoveAddress={handleRemoveAddress}
             isSelected={selectedAddressId === address._id}
@@ -157,6 +158,7 @@ const CheckoutDetails = () => {
       <div onClick={handleAddAddress} className={styles.newAddressCard}>
         &nbsp;+ &nbsp; Add New Address
       </div>
+
       <Dialog
         innerClassName={{
           background: 'white',
@@ -191,4 +193,4 @@ const CheckoutDetails = () => {
   )
 }
 
-export default CheckoutDetails
+export default AddressesView

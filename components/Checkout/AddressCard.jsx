@@ -13,10 +13,11 @@ const AddressCard = (props) => {
     name = '',
     phone = '',
     country = '',
-    handleEditAddress,
-    handleRemoveAddress,
+    isSelectable = false,
+    handleEditAddress = () => {},
+    handleRemoveAddress = () => {},
     isSelected = false,
-    setSelectedAddressId,
+    setSelectedAddressId = () => {},
   } = props
 
   return (
@@ -25,18 +26,20 @@ const AddressCard = (props) => {
       className={`${styles.card} highlight-card  mb-3 fadeInLeft`}
     >
       <div className="row flex-direction-row mb-2">
-        <div className="col-md-1">
-          <input
-            id={`Address-${addressId}`}
-            type="radio"
-            name="optradio"
-            className="text-primary"
-            value={addressId}
-            checked={isSelected}
-            onChange={(e) => setSelectedAddressId(e.target.value)}
-          />
-        </div>
-        <div className={`col-md-11 text-left `}>
+        {isSelectable && (
+          <div className="col-md-1">
+            <input
+              id={`Address-${addressId}`}
+              type="radio"
+              name="optradio"
+              className="text-primary"
+              value={addressId}
+              checked={isSelected}
+              onChange={(e) => setSelectedAddressId(e.target.value)}
+            />
+          </div>
+        )}
+        <div className={`col-md-${isSelectable ? '11' : '12'} text-left `}>
           <div className="d-flex justify-content-between">
             <div className={` c-tag`}>
               <strong>{label}</strong>

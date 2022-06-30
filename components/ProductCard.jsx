@@ -7,6 +7,7 @@ import { addItemToCart } from '../redux/actions/cartActions'
 import { toast } from 'react-toastify'
 import styles from '../styles/components/ProductCard.module.scss'
 import { imageLoader } from '../utils/helperFunction'
+import { addItemToWishlist } from '../redux/actions/wishlistActions'
 
 const ProductCard = (props) => {
   const {
@@ -29,6 +30,10 @@ const ProductCard = (props) => {
       dispatch(addItemToCart(product, 1))
       toast.success('Item added to cart successfully!')
     }
+  }
+
+  const handleAddToWishlist = () => {
+    dispatch(addItemToWishlist(product._id))
   }
 
   const statusTag = [
@@ -112,9 +117,9 @@ const ProductCard = (props) => {
                 )}
               </div>
               {mode !== 'enquiry' && (
-                <a href="#" className="ml-auto">
+                <div onClick={handleAddToWishlist} className="ml-auto">
                   <span className="icon-heart-o"></span>
-                </a>
+                </div>
               )}
             </div>
           </div>

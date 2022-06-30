@@ -1,19 +1,23 @@
 import React from 'react'
-import ProductListView from '../components/Cart/ProductListView';
-import TopBanner from '../components/CustomComponents/TopBanner';
-import withBaseLayout from '../components/Layout/BaseLayout';
+import { useDispatch, useSelector } from 'react-redux'
+import TopBanner from '../components/CustomComponents/TopBanner'
+import withBaseLayout from '../components/Layout/BaseLayout'
+import ProductList from '../components/Shop/ProductList'
 
-const Cart=(props)=> {
+const Wishlist = (props) => {
+  const dispatch = useDispatch()
+  const wishist = useSelector((state) => state.authState.user.wishist)
+
   return (
-    <div> 
-      <TopBanner title="My Wishlist" subtitle="Wishlist"/>
+    <div>
+      {/* <TopBanner title="My Wishlist" subtitle="Wishlist" /> */}
       <section className="ftco-section ftco-cart">
         <div className="container">
-          <ProductListView />
+          <ProductList />
         </div>
       </section>
     </div>
   )
 }
 
-export default withBaseLayout(Cart); 
+export default withBaseLayout(Wishlist)

@@ -6,7 +6,12 @@ import '../../styles/components/ProductList.module.scss'
 import ProductCard from '../ProductCard'
 
 const ProductList = (props) => {
-  const { products, mode = 'cart', cardCallback, selectedProducts } = props
+  const {
+    products = [],
+    mode = 'cart',
+    cardCallback = () => {},
+    selectedProducts = [],
+  } = props
 
   return (
     <Zoom bottom>

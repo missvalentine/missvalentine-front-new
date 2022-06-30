@@ -122,12 +122,12 @@ const Navbar = (props) => {
                             </Link>
                           </li>
                           <li className="list-group-item pr-5">
-                            <Link href="/dashboard">
+                            <Link href="/orders">
                               <a className="text-secondary">Orders</a>
                             </Link>
                           </li>
                           <li className="list-group-item pr-5">
-                            <Link href="/dashboard">
+                            <Link href="/wishlist">
                               <a className="text-secondary">Wishlist</a>
                             </Link>
                           </li>

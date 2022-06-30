@@ -27,6 +27,8 @@ export default function (state = initialState, action) {
         authToken: null,
         isLoggedIn: false,
       }
+
+    //Address
     case 'ADD_ADDRESS': {
       let userAddresses = state.user.addresses
       userAddresses.push(payload)
@@ -53,6 +55,14 @@ export default function (state = initialState, action) {
       return {
         ...state,
         user: { ...state.user, addresses: userAddresses },
+      }
+    }
+    case 'ADD_ITEM_TO_WISHLIST': {
+      let userWishlist = state.user.wishlist
+      userWishlist.push(payload)
+      return {
+        ...state,
+        user: { ...state.user, wishlist: userWishlist },
       }
     }
 

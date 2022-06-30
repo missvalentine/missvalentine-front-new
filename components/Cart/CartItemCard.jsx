@@ -12,7 +12,7 @@ const CartItemCard = (props) => {
 
   const handleRemoveFromCart = () => {
     dispatch(removeItemToCart(productId))
-    toast.success('Item removed to Cart Successfully!')
+    toast.success('Item removed from cart successfully!')
   }
 
   return (

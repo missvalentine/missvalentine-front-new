@@ -3,7 +3,6 @@ import React, { useEffect } from 'react'
 import { useDispatch } from 'react-redux'
 import CartNavbar from '../components/Cart/CartNavbar'
 import CartTotal from '../components/Cart/CartTotal'
-import BillingDetails from '../components/Checkout/BillingDetails'
 import CheckoutDetails from '../components/Checkout/CheckoutDetails'
 import withBaseLayout from '../components/Layout/BaseLayout'
 import { projectName } from '../constant/projectSetting'
@@ -22,13 +21,11 @@ const Checkout = () => {
         <title>{`Billing | ${projectName}`}</title>
       </Head>
       <CartNavbar status={2} />
-      <section className="ftco-section-2 ftco-cart">
+      <section className="ftco-section-2 ftco-cart pb-6">
         <div className="container">
           <section className="d-flex justify-content-between">
             <div className="col-md-7">
-              <CheckoutDetails
-              // products={cartState.products}
-              />
+              <CheckoutDetails />
             </div>
             <div className="col-md-4">
               <CartTotal />
@@ -36,7 +33,7 @@ const Checkout = () => {
           </section>
         </div>
       </section>
-      <BillingDetails />
+      <hr />
     </div>
   )
 }

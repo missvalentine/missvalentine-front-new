@@ -19,11 +19,10 @@ const AddressForm = (props) => {
     handleAddUpdateAddressSubmit,
     isEditable,
   } = props
-  console.log('isEditable', isEditable)
   return (
     <div>
       <div className="pb-3  text-uppercase">
-        <strong>Contact DETAIL</strong>
+        <strong>Contact Details</strong>
       </div>
       <div className="form-group">
         <input

@@ -17,6 +17,7 @@ function withBaseLayout(WrappedComponent, props) {
     return (
       <React.Fragment>
         <Head>
+          <title>{`${WrappedComponent.name.toUpperCase()} | ${projectName}`}</title>
           <meta property="og:title" content={projectName} key="title" />
           <meta
             property="og:description"

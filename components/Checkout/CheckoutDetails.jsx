@@ -1,8 +1,10 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { DialogHeader, useDialog } from 'realayers'
-import AddressCard from './AddressCard'
-import AddressForm from './AddressForm'
+import dynamic from 'next/dynamic'
+
+const AddressCard = dynamic(() => import('./AddressCard'))
+const AddressForm = dynamic(() => import('./AddressForm'))
 import styles from './Checkout.module.scss'
 import { toast } from 'react-toastify'
 import {
@@ -30,6 +32,11 @@ const CheckoutDetails = () => {
 
   //if its false then ist Add mode else Edit Mode
   const [editAddressId, setEditAddressId] = useState()
+
+  //Order
+  const [selectedAddressId, setSelectedAddressId] = useState(
+    userState?.addresses?.length > 0 ? userState?.addresses[0]._id : '',
+  )
   //Actions
 
   const handleAddAddress = () => {
@@ -70,6 +77,7 @@ const CheckoutDetails = () => {
   const handleRemoveAddress = (addressId) => {
     dispatch(deleteAddressAction(addressId))
     toast.success('Address Removed Successfully!')
+    setSelectedAddressId(null)
   }
 
   const handleAddUpdateAddressSubmit = async (e) => {
@@ -125,9 +133,12 @@ const CheckoutDetails = () => {
 
   return (
     <section className="pl-5">
+      <h5>Select Delivery Address</h5>
+      <br />
       {userAddresses?.length > 0 &&
         userAddresses.map((address) => (
           <AddressCard
+            key={`Addresscard_${address._id}`}
             addressId={address._id}
             name={address.name}
             phone={address.phone}
@@ -139,6 +150,8 @@ const CheckoutDetails = () => {
             pincode={address.pincode}
             handleEditAddress={handleEditAddress}
             handleRemoveAddress={handleRemoveAddress}
+            isSelected={selectedAddressId === address._id}
+            setSelectedAddressId={setSelectedAddressId}
           />
         ))}
       <div onClick={handleAddAddress} className={styles.newAddressCard}>

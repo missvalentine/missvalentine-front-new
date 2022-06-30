@@ -6,38 +6,20 @@ import { toast } from 'react-toastify'
 import { useSelector, useDispatch } from 'react-redux'
 import { isCartAvailable, projectName } from '../../constant/projectSetting'
 import { imageLoader } from '../../utils/helperFunction'
-import Modal from '../CustomComponents/Modal'
 import LoginBox from '../Login/LoginBox'
 import { DialogHeader, Popover } from 'realayers'
 import { clearUserAction } from '../../redux/actions/authActions'
 import { useDialog } from 'realayers'
 
-const modalStyles = {
-  content: {
-    top: '5%',
-    left: '30%',
-    right: 'auto',
-    bottom: '5%',
-    width: '480px',
-    height: 'auto',
-    marginRight: '-50%',
-    zIndex: 2200000,
-    padding: 0,
-    // transform: 'translate(-50%, -50%)',
-  },
-}
 const Navbar = (props) => {
   const { fixedNavbar } = props
   const router = useRouter()
   const dispatch = useDispatch()
 
   const [isNavItemOpen, setIsNavItemOpen] = useState(false)
-  const [isLoginModalOpen, setIsLoginModalOpen] = useState(false)
   const cartLength = useSelector((state) => state.cartState.cartLength)
   const isLoggedIn = useSelector((state) => state.authState.isLoggedIn)
 
-  const openLoginModal = () => setIsLoginModalOpen(true)
-  const closeLoginModal = () => setIsLoginModalOpen(false)
   console.log('isLoggedIn', isLoggedIn)
   const { toggleOpen, Dialog } = useDialog()
   const isMobile = false
@@ -155,7 +137,7 @@ const Navbar = (props) => {
                             </Link>
                           </li>
                           <li
-                            className="list-group-item pr-5 pointer"
+                            className="list-group-item pr-5 pointer text-secondary"
                             onClick={handleLogOut}
                           >
                             Log Out
@@ -181,9 +163,6 @@ const Navbar = (props) => {
           </ul>
         </div>
         <Dialog
-          isOpen={isLoginModalOpen}
-          closeModal={closeLoginModal}
-          modalStyles={modalStyles}
           disablePadding
           innerClassName={{
             background: 'white',

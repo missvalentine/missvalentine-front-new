@@ -1312,8 +1312,8 @@ Copyright (c) 2015 Daniel Eden
 }
 
 .fadeInLeft {
-  -webkit-animation-name: fadeInLeft;
-  animation-name: fadeInLeft;
+  -webkit-animation:fadeInLeft 2000ms ease-in-out;
+  animation: fadeInLeft 500ms ease-out;
 }
 
 @-webkit-keyframes fadeInLeftBig {

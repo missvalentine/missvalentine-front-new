@@ -21,10 +21,10 @@ const Cart = (props) => {
       <Head>
         <title>{`SHOPPING BAG`}</title>
       </Head>
-      {cartState.cartLength && <CartNavbar status={1} />}
+      {cartState.cartLength ? <CartNavbar status={1} /> : <hr />}
       {/* <TopBanner title="My Cart" subtitle="Cart" /> */}
       {cartState.cartLength ? (
-        <section className="ftco-section-2 ftco-cart">
+        <section className="ftco-section-2 ftco-cart mb-6">
           <div className="container">
             <section className="d-flex justify-content-between">
               <div className="col-md-7">
@@ -37,13 +37,14 @@ const Cart = (props) => {
           </div>
         </section>
       ) : (
-        <section className="ftco-section ftco-cart">
+        <section className="my-5 ftco-section ftco-cart">
           <EmptyCard
             title={'Your Cart is Empty'}
             subtitle={"Looks like you haven't added anything to your cart"}
           />
         </section>
       )}
+      <hr />
     </div>
   )
 }

@@ -22,14 +22,12 @@ const ProductCard = (props) => {
   const handleProductClick = () => {
     if (!isDisabled) router.push(`/product/${product.slug}`)
   }
-  // const userId = useSelector((state) => state.authState.user._id)
-  console.log('mode', mode)
   const handleAddToCart = () => {
     if (callback) {
       callback(product._id)
     } else {
       dispatch(addItemToCart(product, 1))
-      toast.success('Item Added to Cart Successfully!')
+      toast.success('Item added to cart successfully!')
     }
   }
 

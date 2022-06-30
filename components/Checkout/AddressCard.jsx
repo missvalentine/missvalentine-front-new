@@ -15,20 +15,25 @@ const AddressCard = (props) => {
     country = '',
     handleEditAddress,
     handleRemoveAddress,
+    isSelected = false,
+    setSelectedAddressId,
   } = props
 
   return (
-    <div className={`${styles.card} highlight-card  mb-3`}>
+    <label
+      htmlFor={`Address-${addressId}`}
+      className={`${styles.card} highlight-card  mb-3 fadeInLeft`}
+    >
       <div className="row flex-direction-row mb-2">
         <div className="col-md-1">
           <input
-            // id={_option.type}
+            id={`Address-${addressId}`}
             type="radio"
             name="optradio"
             className="text-primary"
-            // value={_option.type}
-            // checked={queryType === _option.type}
-            // onChange={(e) => setQueryType(e.target.value)}
+            value={addressId}
+            checked={isSelected}
+            onChange={(e) => setSelectedAddressId(e.target.value)}
           />
         </div>
         <div className={`col-md-11 text-left `}>
@@ -68,7 +73,7 @@ const AddressCard = (props) => {
           </div>
         </div>
       </div>
-    </div>
+    </label>
   )
 }
 export default AddressCard

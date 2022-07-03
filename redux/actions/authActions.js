@@ -33,7 +33,10 @@ export const clearUserAction = () => async (dispatch) =>
     type: 'CLEAR_USER',
   })
 
-// Address
+// -----------------------------------------------------------------------------------
+// -----------------------        ADRESSS    -----------------------------------------
+// -----------------------------------------------------------------------------------
+
 export const addAddressAction = (_addressObj) => async (dispatch) =>
   dispatch({
     type: 'ADD_ADDRESS',

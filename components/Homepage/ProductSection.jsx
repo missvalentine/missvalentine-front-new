@@ -8,23 +8,22 @@ import { useSelector } from 'react-redux'
 
 const ProductSection = (props) => {
   const { productList, containerClassName, heading, subHeading } = props
-  const allProductsState = useSelector((state) => state.productListState.allProducts);
-  const allProducts = productList || allProductsState;
+  const allProductsState = useSelector(
+    (state) => state.productListState.allProducts,
+  )
+  const allProducts = productList || Object.values(allProductsState)
   return (
     <DisplayCard
       id="product"
       subHeading={subHeading || 'Our Products'}
       heading={heading || 'Products'}
       containerClassName={containerClassName}
-
     >
       <div className="row">
         {allProducts?.slice(0, 4).map((product, index) => (
-          <Slide  key={product.name} bottom>
+          <Slide key={product.name} bottom>
             <div className="col-sm col-md-6 col-lg">
-              <ProductCard
-                product={product}
-              />
+              <ProductCard product={product} />
             </div>
           </Slide>
         ))}

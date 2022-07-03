@@ -1,5 +1,5 @@
 const initialState = {
-  allProducts: [],
+  allProducts: {},
   isDefaultProductLoaded: false,
   product: null,
   recentlyViewed: [],
@@ -8,13 +8,25 @@ const initialState = {
 export default function (state = initialState, action) {
   const { payload, type } = action
   switch (type) {
-    case 'SET_PRODUCTS':
+    case 'SET_PRODUCTS': {
+      const productsMap = {}
+      payload.forEach((element) => {
+        productsMap[element._id] = element
+      })
       return {
         ...state,
-        allProducts: payload,
+        allProducts: productsMap,
         isDefaultProductLoaded: true,
       }
-   
+    }
+    case 'ADD_TO_ALL_PRODUCTS': {
+      const productsMap = state.allProducts
+      productsMap[payload._id] = payload
+      return {
+        ...state,
+        allProducts: productsMap,
+      }
+    }
     case 'SET_PRODUCT':
       return {
         ...state,
@@ -34,8 +46,8 @@ export default function (state = initialState, action) {
       }
     case 'ADD_TO_RECENTLY_VIEWD': {
       if (state.recentlyViewed.findIndex((x) => x._id == payload._id) === -1)
-        state.recentlyViewed.unshift(payload);
-      
+        state.recentlyViewed.unshift(payload)
+
       return {
         ...state,
         recentlyViewed: state.recentlyViewed,

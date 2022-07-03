@@ -49,7 +49,7 @@ const TrendingSection = () => {
         dotListClass="custom-dot-list-style"
         itemClass="carousel-item-padding-40-px px-4"
       >
-        {allProducts?.map((product, index) => (
+        {Object.values(allProducts)?.map((product, index) => (
           <Slide key={product.name} className="p-2" bottom>
             <ProductCard product={product} hideAddToCart />
           </Slide>

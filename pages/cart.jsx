@@ -21,7 +21,7 @@ const Cart = (props) => {
       <Head>
         <title>{`SHOPPING BAG`}</title>
       </Head>
-      {cartState.cartLength ? <CartNavbar status={1} /> : <div/>}
+      {cartState.cartLength ? <CartNavbar status={1} /> : <div />}
       {/* <TopBanner title="My Cart" subtitle="Cart" /> */}
       {cartState.cartLength ? (
         <section className="ftco-section-2 ftco-cart mb-6">
@@ -41,6 +41,7 @@ const Cart = (props) => {
           <EmptyCard
             title={'Your Cart is Empty'}
             subtitle={"Looks like you haven't added anything to your cart"}
+            actionText="Explore"
           />
         </section>
       )}

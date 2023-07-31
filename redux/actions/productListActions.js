@@ -6,10 +6,10 @@ export const setAllProducts = (products) => async (dispatch) =>
     payload: products,
   })
 
-export const addProductToRecent = (product) => async (dispatch) =>
+export const addProductToRecent = (productId) => async (dispatch) =>
   dispatch({
     type: 'ADD_TO_RECENTLY_VIEWD',
-    payload: product,
+    payload: productId,
   })
 export const addProductToAllProducts = (product) => async (dispatch) =>
   dispatch({

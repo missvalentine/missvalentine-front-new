@@ -31,6 +31,7 @@ const Home = (props) => {
   const { productListData, categoryData } = props
 
   useEffect(() => {
+    console.log('productListData-categoryData', productListData, categoryData)
     dispatch(setAllProducts(productListData))
     dispatch(setAllCategories(categoryData))
     // eslint-disable-next-line react-hooks/exhaustive-deps

@@ -2,6 +2,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import React, { useState } from 'react'
+import styles from './Navbar.module.scss'
 import { toast } from 'react-toastify'
 import { useSelector, useDispatch } from 'react-redux'
 import { isCartAvailable, projectName } from '../../constant/projectSetting'
@@ -10,6 +11,7 @@ import LoginBox from '../Login/LoginBox'
 import { DialogHeader, Popover } from 'realayers'
 import { clearUserAction } from '../../redux/actions/authActions'
 import { useDialog } from 'realayers'
+import { isMobileOrTablet } from '../../utils/viewportUtility'
 
 const Navbar = (props) => {
   const { fixedNavbar = true } = props
@@ -22,10 +24,10 @@ const Navbar = (props) => {
 
   console.log('isLoggedIn', isLoggedIn)
   const { toggleOpen, Dialog } = useDialog()
-  const isMobile = false
+
   const handleLoginRedirect = () => {
     if (!isLoggedIn) {
-      if (isMobile) router.push('/login')
+      if (isMobileOrTablet()) router.push('/login')
       else toggleOpen()
     } else {
       //do logout logic
@@ -164,9 +166,8 @@ const Navbar = (props) => {
         </div>
         <Dialog
           disablePadding
-          innerClassName={{
-            background: 'white',
-          }}
+          size={500}
+          // innerClassName={styles.loginDialog}
           headerElement={
             <DialogHeader
               className="dialog-header"

@@ -10,12 +10,15 @@ const CartProductListView = (props) => {
           const product = cartItem.product
           return (
             <CartItemCard
-              imgSrc={product?.images[0]?.data}
+              key={cartItem?.name}
+              imgSrc={product?.images ? product?.images[0]?.data : null}
               name={product?.name}
               category={product?.category}
               productId={product._id}
-              price={product.price}
+              price={cartItem.price}
               quantity={cartItem.quantity}
+              color={cartItem.color}
+              size={cartItem.size}
             />
           )
         })}

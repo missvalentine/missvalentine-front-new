@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import { useRouter } from 'next/router'
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
@@ -9,6 +10,7 @@ import {
 import styles from '../../styles/components/LoginBox.module.scss'
 import { callApi } from '../../utils/callApi'
 import { EmailReg } from '../../utils/regEx'
+import { isValidEmail, isValidPassword } from '../../utils/validationUtils'
 import Loader from '../CustomComponents/Loader'
 
 const LoginBox = (props) => {
@@ -20,6 +22,11 @@ const LoginBox = (props) => {
   const [email, setEmail] = useState(null)
   const [phoneNo, setPhoneNo] = useState(null)
   const [password, setPassword] = useState(null)
+
+  const [nameError, setNameError] = useState('')
+  const [emailError, setEmailError] = useState('')
+  const [phoneError, setPhoneError] = useState('')
+  const [passwordError, setPasswordError] = useState('')
 
   const handleRegister = async (e) => {
     try {
@@ -110,16 +117,17 @@ const LoginBox = (props) => {
           <div className={styles.box}>
             <div className="form-group">
               <input
-                type="text"
+                type="email"
                 className="form-control"
                 placeholder="Email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
               />
+              <div>{emailError}</div>
             </div>
             <div className="form-group">
               <input
-                type="text"
+                type="password"
                 className="form-control"
                 placeholder="Password"
                 value={password}
@@ -135,8 +143,16 @@ const LoginBox = (props) => {
               </button>
             </div>
             <div className="mt-2 text-center text-secondary small w-75 mx-auto">
-              By creating an account you will agree Privacy Policy and Terms of
-              Conditions
+              By creating an account you will agree{' '}
+              <Link href="/privacy-policy">
+                <span className="text-primary-2 pointer">Privacy Policy</span>
+              </Link>
+              {' and '}
+              <Link href="/privacy-policy">
+                <span className="text-primary-2 pointer">
+                  Terms of Conditions
+                </span>
+              </Link>
             </div>
           </div>
         ) : (
@@ -156,8 +172,11 @@ const LoginBox = (props) => {
                 className="form-control"
                 placeholder="Email"
                 value={email}
-                onChange={(e) => setEmail(e.target.value)}
+                onChange={(e) =>
+                  isValidEmail(e.target.value, setEmail, setEmailError)
+                }
               />
+              <div>{emailError}</div>
             </div>
             <div className="form-group">
               <input
@@ -170,12 +189,15 @@ const LoginBox = (props) => {
             </div>
             <div className="form-group">
               <input
-                type="text"
+                type="password"
                 className="form-control"
                 placeholder="Password"
                 value={password}
-                onChange={(e) => setPassword(e.target.value)}
+                onChange={(e) =>
+                  isValidPassword(e.target.value, setPassword, setPasswordError)
+                }
               />
+              <div>{passwordError}</div>
             </div>
             <div className="mt-5 text-center form-group">
               <button

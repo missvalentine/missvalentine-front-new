@@ -7,6 +7,7 @@ const initialState = {
 export default function (state = initialState, action) {
   const { payload, type } = action
   switch (type) {
+    // Auth-User
     case 'SET_USER_AUTH':
       return {
         ...state,
@@ -57,12 +58,29 @@ export default function (state = initialState, action) {
         user: { ...state.user, addresses: userAddresses },
       }
     }
+
+    // Wishlist
     case 'ADD_ITEM_TO_WISHLIST': {
-      let userWishlist = state.user.wishlist
+      let userWishlist = [...state.user.wishlist]
       userWishlist.push(payload)
       return {
         ...state,
         user: { ...state.user, wishlist: userWishlist },
+      }
+    }
+    case 'REMOVE_ITEM_FROM_WISHLIST': {
+      const userWishlist = [...state.user.wishlist].filter(
+        (item) => item != payload,
+      )
+      return {
+        ...state,
+        user: { ...state.user, wishlist: userWishlist },
+      }
+    }
+    case 'CLEAR_WISHLIST': {
+      return {
+        ...state,
+        user: { ...state.user, wishlist: [] },
       }
     }
 

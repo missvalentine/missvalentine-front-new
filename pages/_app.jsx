@@ -45,6 +45,4 @@ const MyApp = ({ Component, pageProps }) => {
     </Provider>
   )
 }
-export default wrapper.withRedux(MyApp)
-
-// export default
+export default MyApp

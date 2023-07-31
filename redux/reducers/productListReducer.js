@@ -20,7 +20,7 @@ export default function (state = initialState, action) {
       }
     }
     case 'ADD_TO_ALL_PRODUCTS': {
-      const productsMap = state.allProducts
+      const productsMap = { ...state.allProducts }
       productsMap[payload._id] = payload
       return {
         ...state,

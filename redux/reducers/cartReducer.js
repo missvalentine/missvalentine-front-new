@@ -22,7 +22,10 @@ export default function (state = initialState, action) {
       }
     case 'REMOVE_FROM_CART': {
       const newCart = [...state.products].filter(
-        (item) => item.product._id != payload,
+        (item) =>
+          item.product._id !== payload.productId ||
+          item.color !== payload.color ||
+          item.size !== payload.size,
       )
       return {
         ...state,

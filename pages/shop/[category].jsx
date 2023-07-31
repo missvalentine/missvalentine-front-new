@@ -18,13 +18,13 @@ const Shop = (props) => {
   const allCategoriesData = useSelector(
     (state) => state.categoryState.categoriesData,
   )
+  const cartState = useSelector((state) => state.cartState)
 
   useEffect(() => {
     if (categorySlug !== 'all') dispatch(addCategoryData(categoryData))
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [categorySlug])
-  console.log('allCategories', allCategories)
-
+  const productsInCart = cartState?.products?.map((product) => product._id)
   return (
     <div>
       <TopBanner title="Collection" subtitle="Product" />
@@ -42,7 +42,7 @@ const Shop = (props) => {
             </Link>
 
             {allCategories
-              .filter((_category) => _category.products.length >= 1)
+              ?.filter((_category) => _category.products.length >= 1)
               .map((_category) => (
                 <Link
                   key={_category.name}
@@ -64,9 +64,10 @@ const Shop = (props) => {
           <ProductList
             products={
               categorySlug === 'all'
-                ? allProducts
+                ? Object.values(allProducts)
                 : allCategoriesData[categorySlug]?.products || []
             }
+            selectedProducts={productsInCart}
           />
           {/* <Pagination /> */}
         </div>

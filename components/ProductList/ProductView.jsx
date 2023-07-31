@@ -7,7 +7,7 @@ import {
   comapanyAlternateNo,
 } from '../../constant/projectSetting'
 import { addItemToCart } from '../../redux/actions/cartActions'
-import styles from '../../styles/components/ProductView.module.scss'
+import styles from './ProductView.module.scss'
 import { getColorCode, imageLoader } from '../../utils/helperFunction'
 import Modal from '../CustomComponents/Modal'
 
@@ -29,14 +29,34 @@ const modalStyles = {
 const ProductView = (props) => {
   const { product } = props
   const dispatch = useDispatch()
+  const cartState = useSelector((state) => state.cartState)
+
   const [quantity, setQuantity] = useState(1)
   const [color, setColor] = useState('')
   const [size, setSize] = useState('')
   const [isImageZoom, setIsImageZoom] = useState(false)
 
+  const isProductInCart =
+    cartState?.products?.findIndex(
+      (_product) => _product._id === product._id,
+    ) >= 0
+
   const handleAddToCart = () => {
-    dispatch(addItemToCart(product, quantity))
-    toast.success('Item Added to Cart Successfully!')
+    if (!color) {
+      toast.info('Please Select Color First!')
+    } else if (!size) {
+      toast.info('Please Select Size First!')
+    } else {
+      dispatch(
+        addItemToCart({
+          productId: product._id,
+          quantity,
+          color,
+          size,
+        }),
+      )
+      toast.success('Item Added to Cart Successfully!')
+    }
   }
   const handleDecreaseQuantity = () => {
     setQuantity((q) => (q > 1 ? q - 1 : 1))
@@ -78,7 +98,13 @@ const ProductView = (props) => {
               <div className="mb-2">
                 <h6 className="text-dark">Available Sizes</h6>
                 {product.sizes.map((s, i) => (
-                  <div key={i} className={styles.sizeBox}>
+                  <div
+                    key={i}
+                    className={`${styles.sizeBox} ${
+                      s === size ? styles.sizeBoxSelected : ''
+                    }`}
+                    onClick={() => setSize(s)}
+                  >
                     {s}
                   </div>
                 ))}
@@ -89,7 +115,13 @@ const ProductView = (props) => {
               <div className="mb-2">
                 <h6 className="text-dark">Colors</h6>
                 {product.colors.map((c, i) => (
-                  <div className={styles.colorBox} key={i}>
+                  <div
+                    className={`${styles.colorBox} ${
+                      c === color ? styles.colorBoxSelected : ''
+                    }`}
+                    onClick={() => setColor(c)}
+                    key={i}
+                  >
                     <div style={{ backgroundColor: getColorCode(c) }} />
                   </div>
                 ))}
@@ -161,14 +193,19 @@ const ProductView = (props) => {
               >
                 Whatsapp Enquiry
               </a>
-              {isCartAvailable && (
-                <div
-                  onClick={handleAddToCart}
-                  className="col-5  btn btn-primary py-3 px-5"
-                >
-                  Add to Cart
-                </div>
-              )}
+              {isCartAvailable &&
+                (isProductInCart ? (
+                  <div className="col-5  btn btn-primary-2 py-3 px-5">
+                    View Cart
+                  </div>
+                ) : (
+                  <div
+                    onClick={handleAddToCart}
+                    className="col-5  btn btn-primary py-3 px-5"
+                  >
+                    Add to Cart
+                  </div>
+                ))}
             </div>
           </div>
         </div>

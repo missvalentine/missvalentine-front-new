@@ -5,9 +5,9 @@ import { useSelector } from 'react-redux'
 const CartTotal = () => {
   const cartState = useSelector((state) => state.cartState)
   const subTotal = cartState.products
-    .map((cartItem) => cartItem.product.quantity)
+    .map((cartItem) => cartItem.quantity * cartItem.price)
     .reduce((partialSum, a) => partialSum + a, 0)
-  console.log('subtotal', subTotal)
+
   return (
     <div className="w-100  cart-wrap ftco-animated fadeInUp">
       <div className="cart-total mb-3">
@@ -18,11 +18,11 @@ const CartTotal = () => {
         </p>
         <p className="d-flex  mb-1">
           <span>Delivery</span>
-          <span className="text-right">&#8377;0.00</span>
+          <span className="text-right">&#8377;65.00</span>
         </p>
         <p className="d-flex  mb-1">
           <span>Discount</span>
-          <span className="text-right">&#8377;3.00</span>
+          <span className="text-right">&#8377;130.00</span>
         </p>
         <hr />
         <p className="d-flex total-price text-dark">

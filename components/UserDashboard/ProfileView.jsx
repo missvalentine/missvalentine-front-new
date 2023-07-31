@@ -3,7 +3,7 @@ import styles from './UserDashboard.module.scss'
 import moment from 'moment'
 
 const ProfileView = (props) => {
-  const { name, email, phoneNo, createdAt } = props
+  const { name, email, phoneNo, createdAt = '' } = props
   return (
     <div className={styles.profileWrapper}>
       <h5>Profile Details</h5>

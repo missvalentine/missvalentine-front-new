@@ -21,7 +21,11 @@ export const handleCatch = (err) => {
 }
 
 export const getColorCode = (colorName) => {
-  if (typeof colors[colorName.toLowerCase()] != 'undefined')
+  if (
+    colorName &&
+    typeof colorName === 'string' &&
+    typeof colors[colorName?.toLowerCase()] != 'undefined'
+  )
     return colors[colorName.toLowerCase()]
 
   return '#fff'

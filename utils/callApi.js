@@ -44,6 +44,8 @@ export const callApi = async ({ method = 'get', url, data, options }) => {
     if (options && options.headers) {
       headers = { ...headers, ...options.headers }
     }
+    console.log('[Function Call]', method, url, baseUrl, data, headers)
+
     const response = await axios({
       method,
       url,
@@ -60,7 +62,7 @@ export const callApi = async ({ method = 'get', url, data, options }) => {
       })
     return response
   } catch (err) {
-    console.log(err)
+    console.log('[Function Call | Error]', err)
     return err
   }
 }

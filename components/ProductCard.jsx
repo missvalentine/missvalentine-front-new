@@ -1,39 +1,81 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Image from 'next/image'
 import { useRouter } from 'next/router'
 import { isCartAvailable, isReviewsAvailable } from '../constant/projectSetting'
 import { useDispatch, useSelector } from 'react-redux'
 import { addItemToCart } from '../redux/actions/cartActions'
 import { toast } from 'react-toastify'
-import styles from '../styles/components/ProductCard.module.scss'
+import styles from './ProductCard.module.scss'
 import { imageLoader } from '../utils/helperFunction'
-import { addItemToWishlist } from '../redux/actions/wishlistActions'
+import {
+  addItemToWishlist,
+  removeItemFromWishlist,
+} from '../redux/actions/wishlistActions'
+import { Tooltip, useDialog, useDrawer } from 'realayers'
+import CartItemMetaData from './Cart/CartItemMetaData'
 
 const ProductCard = (props) => {
   const {
     product,
-    hideAddToCart,
     mode = 'cart',
     callback,
     isAdded = false,
     isDisabled = false,
+    isWishlistOption = true,
+    isAddToCartOption = true,
   } = props
+  const { Dialog, setOpen: setDialogOpen } = useDialog()
+  const { Drawer, setOpen: setDrawerOpen } = useDrawer()
+
+  const wishlistState = useSelector((state) => state.authState.user.wishlist)
   const dispatch = useDispatch()
   const router = useRouter()
+
+  const [color, setColor] = useState('')
+  const [size, setSize] = useState('')
+
   const handleProductClick = () => {
     if (!isDisabled) router.push(`/product/${product.slug}`)
   }
-  const handleAddToCart = () => {
+  const handleAddToCartClick = () => {
     if (callback) {
       callback(product._id)
     } else {
-      dispatch(addItemToCart(product, 1))
-      toast.success('Item added to cart successfully!')
+      // setDialogOpen(true)
+      setDialogOpen(true)
     }
   }
 
-  const handleAddToWishlist = () => {
+  const handleAddtoCartSubmit = () => {
+    if (!color) {
+      toast.info('Please Select Color First!')
+    } else if (!size) {
+      toast.info('Please Select Size First!')
+    } else {
+      dispatch(
+        addItemToCart({
+          productId: product._id,
+          quantity: 1,
+          color,
+          size,
+        }),
+      )
+      setDialogOpen(false)
+      toast.success('Item Added to Cart Successfully!')
+    }
+  }
+
+  const handleAddToWishlist = (event) => {
+    event.target.classList.toggle('heart-liked')
     dispatch(addItemToWishlist(product._id))
+    toast.success('Item Wishlisted!')
+  }
+
+  const handleRemoveProductWishlist = (event) => {
+    console.log('handleRemoveProductWishlist', event.target)
+    event.target.classList.toggle('heart-liked')
+    dispatch(removeItemFromWishlist(product._id))
+    toast.success('Item removed from wishlist!')
   }
 
   const statusTag = [
@@ -49,14 +91,20 @@ const ProductCard = (props) => {
     },
   ]
   const tagId = product.name[0] < 'j' ? (0 ? product.name[0] < 's' : 1) : -1
-  // const randomTagName = product.name[0] ? :
-
+  const isWishlisted =
+    wishlistState?.findIndex((wid) => wid == product._id) >= 0
   return (
-    <div className={`product ${mode == 'enquiry' && 'px-md-4'}`}>
-      <div
-        className={`img-prod ${!isDisabled && 'pointer'}`}
-        onClick={handleProductClick}
-      >
+    <div
+      className={`${styles.productCard} product ${
+        mode == 'enquiry' && 'px-md-4'
+      }`}
+    >
+      {mode === 'wishlist' && (
+        <div onClick={handleRemoveProduct} className={styles.closeBtn}>
+          <span className="icon-close2"></span>
+        </div>
+      )}
+      <div className={!isDisabled && 'pointer'} onClick={handleProductClick}>
         <Image
           height="700px"
           width="500px"
@@ -79,16 +127,16 @@ const ProductCard = (props) => {
       </div>
       <div className="text">
         <div className="pt-2 px-3 pointer" onClick={handleProductClick}>
-          <h3 className="text-capitalize">{product.name}</h3>
+          <h3 className={styles.productName}>{product.name}</h3>
           <div className="d-flex">
             <div className="pricing">
               {product.price ? (
-                <p className="price">
+                <div className="price">
                   <span className="mr-2 price-dc">&#8377;150.00</span>
                   <span className="price-sale">&#8377;105.00</span>
-                </p>
+                </div>
               ) : (
-                <p>{product.category.name}</p>
+                <div>{product.category.name}</div>
               )}
             </div>
             {isReviewsAvailable && (
@@ -104,27 +152,76 @@ const ProductCard = (props) => {
             )}
           </div>
         </div>
-        {(mode === 'enquiry' || (!hideAddToCart && isCartAvailable)) && (
+        {isCartAvailable && (isWishlistOption || isAddToCartOption) && (
           <div className="pb-2 px-3">
             <hr />
             <div className="bottom-area d-flex btn btn-cyan">
-              <div className="add-to-cart" onClick={handleAddToCart}>
-                <span className="icon-cart-plus mr-2"></span>
-                {isAdded ? (
-                  <span>Added </span>
-                ) : (
-                  <span>Add to {mode == 'enquiry' ? 'list' : 'cart'} </span>
-                )}
-              </div>
-              {mode !== 'enquiry' && (
-                <div onClick={handleAddToWishlist} className="ml-auto">
-                  <span className="icon-heart-o"></span>
+              {isAddToCartOption && (
+                <div
+                  className={styles.addToCartButton}
+                  onClick={handleAddToCartClick}
+                >
+                  <span className="icon-cart-plus mr-2"></span>
+                  {isAdded ? (
+                    <span>Added </span>
+                  ) : (
+                    <span>Add to {mode == 'enquiry' ? 'list' : 'cart'} </span>
+                  )}
                 </div>
+              )}
+
+              {isWishlistOption && (
+                <Tooltip
+                  triggerClassName="ml-auto"
+                  content={isWishlistOption ? 'Already in wishlist' : 'A  '}
+                >
+                  <div
+                    onClick={
+                      isWishlistOption
+                        ? handleRemoveProductWishlist
+                        : handleAddToWishlist
+                    }
+                    id={`product_heart_${product.slug}`}
+                    className={`heart`}
+                  ></div>
+                </Tooltip>
               )}
             </div>
           </div>
         )}
       </div>
+
+      <Dialog disablePadding>
+        <CartItemMetaData
+          imgSrc={product.images[0].data}
+          name={product.name}
+          price={product.price}
+          colors={product.colors}
+          sizes={product.sizes}
+          size={size}
+          color={color}
+          setColor={setColor}
+          setSize={setSize}
+          handleDone={handleAddtoCartSubmit}
+          categoryName={product?.category?.name}
+        />
+      </Dialog>
+      <Drawer>
+        <div>Helo darw</div>
+        {/* <CartItemMetaData
+          imgSrc={product.images[0].data}
+          name={product.name}
+          price={product.price}
+          colors={product.colors}
+          sizes={product.sizes}
+          size={size}
+          color={color}
+          setColor={setColor}
+          setSize={setSize}
+          handleDone={handleAddtoCartSubmit}
+          categoryName={product?.category?.name}
+        /> */}
+      </Drawer>
     </div>
   )
 }

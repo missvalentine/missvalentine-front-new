@@ -213,6 +213,7 @@ const EQform = () => {
           {categorySlug && (
             <ProductList
               mode="enquiry"
+              isWishlistOption={false}
               products={allCategoriesData[categorySlug]?.products || []}
               cardCallback={handleSelectProductClick}
               selectedProducts={selectedProducts}

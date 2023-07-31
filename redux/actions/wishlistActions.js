@@ -45,20 +45,31 @@ export const getAllCartItem = () => async (dispatch) => {
     console.log({ err })
   }
 }
-export const removeItemToCart = (productId) => async (dispatch) => {
+export const removeItemFromWishlist = (productId) => async (dispatch) => {
   try {
-    await callApi({
+    const { data, status } = await callApi({
       method: 'delete',
-      url: `cart/remove-product`,
+      url: `user/remove-item-from-wishist`,
       data: {
         productId: productId,
       },
     })
-    dispatch({
-      type: 'REMOVE_FROM_CART',
-      payload: productId,
-    })
+    if (data && status)
+      dispatch({
+        type: 'REMOVE_ITEM_FROM_WISHLIST',
+        payload: productId,
+      })
+    else {
+      dispatch({
+        type: 'SHOW_MESSAGE',
+        payload: { message: 'Cant Remove', type: 'Error' },
+      })
+    }
   } catch (err) {
     console.log({ err })
+    dispatch({
+      type: 'SHOW_MESSAGE',
+      payload: { message: err.response.status.message, type: 'Error' },
+    })
   }
 }
